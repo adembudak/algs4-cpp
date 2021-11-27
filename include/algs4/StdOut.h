@@ -10,7 +10,7 @@ using byte = std::int8_t;
 namespace StdOut {
 // print and terminate line;
 void println();
-void println(const std::string x);
+void println(const std::string &x);
 void println(const char *x);
 void println(const bool x);
 void println(const char x);
@@ -23,7 +23,7 @@ void println(const byte x);
 
 // print and flush standard output
 void print();
-void print(const std::string x);
+void print(const std::string &x);
 void print(const char *x);
 void print(const bool x);
 void print(const char x);
