@@ -15,7 +15,7 @@ void println() {
     std::cout << '\n';
 }
 
-void println(const std::string x) {
+void println(const std::string &x) {
     std::cout << x << '\n';
 }
 
@@ -61,7 +61,7 @@ void print() {
     std::cout << std::flush;
 }
 
-void print(const std::string x) {
+void print(const std::string &x) {
     std::cout << x << std::flush;
 }
 
