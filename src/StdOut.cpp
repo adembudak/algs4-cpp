@@ -5,6 +5,8 @@
 #include <cstdio>
 #include <string>
 #include <iostream>
+#include <limits>
+#include <iomanip>
 
 namespace algs4 {
 namespace StdOut {
@@ -34,10 +36,12 @@ void println(const int x) {
 }
 
 void println(const double x) {
+    std::cout.precision(std::numeric_limits<double>::digits10);
     std::cout << x << '\n';
 }
 
 void println(const float x) {
+    std::cout.precision(std::numeric_limits<float>::digits10);
     std::cout << x << '\n';
 }
 
