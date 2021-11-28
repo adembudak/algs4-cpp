@@ -33,6 +33,7 @@ endfunction()
 
 add_algs4_library(StdOut SOURCES src/StdOut.cpp)
 add_algs4_library(StdIn SOURCES src/StdIn.cpp)
+add_algs4_library(Accumulator SOURCES src/Accumulator.cpp)
 
 function(add_algs4_test name)
   set(options)
@@ -59,3 +60,15 @@ add_algs4_test(StdIn_isEmpty SOURCE tests/StdIn_isEmpty.cpp LINK StdIn)
 add_algs4_test(StdIn_hasNextChar SOURCE tests/StdIn_hasNextChar.cpp LINK StdIn)
 add_algs4_test(StdIn_hasNextLine SOURCE tests/StdIn_hasNextLine.cpp LINK StdIn)
 
+function(add_algs4_executable name)
+  set(options)
+  set(one_value_args SOURCE)
+  set(multi_value_args LINK)
+
+  cmake_parse_arguments(${name} "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
+
+  add_executable(${name} ${${name}_SOURCE})
+  target_link_libraries(${name} PRIVATE ${${name}_LINK})
+endfunction()
+
+add_algs4_executable(accumulator_demo SOURCE demos/accumulator_client.cpp LINK Accumulator StdIn StdOut)
