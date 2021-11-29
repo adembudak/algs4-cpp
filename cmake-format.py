@@ -15,18 +15,18 @@ with section("parse"):
 with section("format"):
   disable = False 
 
-  line_width = 100
+  line_width = 110
   tab_size = 2
   use_tabchars = False
 
   fractional_tab_policy = 'use-space'
   max_subgroups_hwrap = 2
-  max_pargs_hwrap = 8
-  dangle_parens = True
+  max_pargs_hwrap = 10
+  dangle_parens = False
 
   max_rows_cmdline = 2
   separate_ctrl_name_with_space = False
-  separate_fn_name_with_space = False
+  separate_fn_name_with_space = True
 
   dangle_align = 'prefix-indent'
 
