@@ -1,7 +1,7 @@
 #ifndef ACCUMULATOR_H
 #define ACCUMULATOR_H
 
-#include <iosfwd>
+#include <string>
 
 namespace algs4 {
 
@@ -19,7 +19,7 @@ class Accumulator {
     double stddev() const noexcept;
     int count() const noexcept;
 
-    friend std::ostream &operator<<(std::ostream &os, const Accumulator &ac);
+    operator std::string() const;
 };
 
 }

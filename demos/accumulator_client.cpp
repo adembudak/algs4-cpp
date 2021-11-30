@@ -18,6 +18,5 @@ int main() {
     StdOut::printf("stddev = %.5f\n", stats.stddev());
     StdOut::printf("var    = %.5f\n", stats.var());
 
-    std::cout << stats << '\n';
-    // StdOut::println(stats);
+    StdOut::println(stats);
 }

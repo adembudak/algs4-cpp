@@ -1,7 +1,7 @@
 #include "algs4/Accumulator.h"
 
 #include <cmath>
-#include <ostream>
+#include <string>
 
 namespace algs4 {
 
@@ -29,8 +29,9 @@ int Accumulator::count() const noexcept {
     return n;
 }
 
-std::ostream &operator<<(std::ostream &os, const Accumulator &ac) {
-    return os << "n = " << ac.n << ", mean = " << ac.mean() << ", stddev = " << ac.stddev();
+Accumulator::operator std::string() const {
+    return "n = " + std::to_string(n) + ", mean = " + std::to_string(mean()) +
+           ", stddev = " + std::to_string(stddev());
 }
 
 }
