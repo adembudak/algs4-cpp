@@ -23,12 +23,15 @@ class In {
 
     bool exists();
     bool isEmpty();
-    bool hasNextLine();
+
     bool hasNextChar();
-    std::string readLine();
-    char readChar();
-    std::string readAll();
+    bool hasNextLine();
+
     std::string readString();
+    std::string readLine();
+    std::string readAll();
+
+    char readChar();
     int readInt();
     double readDouble();
     float readFloat();
@@ -39,9 +42,11 @@ class In {
 
     std::vector<std::string> readAllStrings();
     std::vector<std::string> readAllLines();
+
     std::vector<int> readAllInts();
     std::vector<long> readAllLongs();
     std::vector<double> readAllDoubles();
+
     void close();
 
     [[deprecated]] std::vector<int> readints(std::string filename);

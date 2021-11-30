@@ -27,12 +27,18 @@ bool In::isEmpty() {
     return (fin >> std::ws).peek() == std::char_traits<char>::eof();
 }
 
+bool In::hasNextChar() {
+    return (fin >> std::ws).peek() != std::char_traits<char>::eof();
+}
+
 bool In::hasNextLine() {
     return isEmpty() == false;
 }
 
-bool In::hasNextChar() {
-    return (fin >> std::ws).peek() != std::char_traits<char>::eof();
+std::string In::readString() {
+    std::string str;
+    fin >> str;
+    return str;
 }
 
 std::string In::readLine() {
@@ -41,20 +47,14 @@ std::string In::readLine() {
     return s;
 }
 
-char In::readChar() {
-    char c;
-    fin >> c;
-    return c;
-}
-
 std::string In::readAll() {
     return std::string(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>());
 }
 
-std::string In::readString() {
-    std::string str;
-    fin >> str;
-    return str;
+char In::readChar() {
+    char c;
+    fin >> c;
+    return c;
 }
 
 int In::readInt() {
