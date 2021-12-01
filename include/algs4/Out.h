@@ -7,7 +7,7 @@
 #include <cstdint>
 
 namespace algs4 {
-using byte = std::uint8_t;
+using byte = std::int8_t;
 
 class Out {
   private:
