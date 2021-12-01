@@ -15,7 +15,9 @@ include (add_algs4_library)
 
 add_algs4_library (StdOut SOURCES src/StdOut.cpp)
 add_algs4_library (StdIn SOURCES src/StdIn.cpp)
+
 add_algs4_library (In SOURCES src/In.cpp)
+add_algs4_library (Out SOURCES src/Out.cpp)
 
 add_algs4_library (Accumulator SOURCES src/Accumulator.cpp)
 
@@ -62,5 +64,7 @@ add_algs4_test (In_readAllStrings_test SOURCE tests/In_readAllStrings_test.cpp W
 
 add_algs4_test (In_readAllLines_test SOURCE tests/In_readAllLines_test.cpp WORKING_DIR
                 ${ALGS4_SOURCE_DIR}/tests ARGUMENTS lorem_ipsum.dat LINK In)
+
+add_algs4_test (Out_test SOURCE tests/Out_test.cpp WORKING_DIR ${ALGS4_SOURCE_DIR}/tests LINK Out)
 
 add_algs4_executable (accumulator_demo SOURCE demos/accumulator_client.cpp LINK Accumulator StdIn StdOut)
