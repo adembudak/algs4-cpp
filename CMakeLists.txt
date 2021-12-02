@@ -6,6 +6,7 @@ include (CTest)
 
 set (ALGS4_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 set (ALGS4_BINARY_DIR ${PROJECT_BINARY_DIR})
+set (ALGS4_DATA_DIR "${ALGS4_SOURCE_DIR}/demos/algs4-data")
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${ALGS4_SOURCE_DIR}/cmake")
 
 include (add_algs4_executable)
@@ -18,9 +19,9 @@ option (WITH_DEMOS "" TRUE)
 
 add_algs4_library (StdOut SOURCES src/StdOut.cpp)
 add_algs4_library (StdIn SOURCES src/StdIn.cpp)
-
 add_algs4_library (In SOURCES src/In.cpp)
 add_algs4_library (Out SOURCES src/Out.cpp)
+add_algs4_library (StdArrayIO SOURCES src/StdArrayIO.cpp)
 
 add_algs4_library (Accumulator SOURCES src/Accumulator.cpp)
 add_algs4_library (Counter SOURCES src/Counter.cpp)
@@ -77,17 +78,30 @@ add_algs4_test (StdIn_hasNextLine_test SOURCE tests/StdIn_hasNextLine_test.cpp L
                   ${ALGS4_SOURCE_DIR}/tests ARGUMENTS lorem_ipsum.dat LINK In)
 
   add_algs4_test (Out_test SOURCE tests/Out_test.cpp WORKING_DIR ${ALGS4_SOURCE_DIR}/tests LINK Out)
+
+  if(NOT EXISTS ${ALGS4_DATA_DIR}/tinyDouble1D.txt)
+    download ("https://introcs.cs.princeton.edu/java/22library/tinyDouble1D.txt"
+              ${ALGS4_DATA_DIR}/tinyDouble1D.txt)
+    download ("https://introcs.cs.princeton.edu/java/22library/tinyDouble2D.txt"
+              ${ALGS4_DATA_DIR}/tinyDouble2D.txt)
+    download ("https://introcs.cs.princeton.edu/java/22library/tinyBoolean2D.txt"
+              ${ALGS4_DATA_DIR}/tinyBoolean2D.txt)
+  endif()
+  add_algs4_test (StdArrayIO_test SOURCE tests/StdArrayIO_test.cpp WORKING_DIR ${ALGS4_SOURCE_DIR}/tests LINK
+                  StdArrayIO StdIn StdOut)
 endif()
 
 if(WITH_DEMOS)
-if (NOT EXISTS ${ALGS4_SOURCE_DIR}/demos)
-  download ("https://algs4.cs.princeton.edu/code/algs4-data.zip" algs4-data.zip)
-  extract (algs4-data.zip ${ALGS4_SOURCE_DIR}/demos)
+  if(NOT EXISTS ${ALGS4_SOURCE_DIR}/demos)
+    download ("https://algs4.cs.princeton.edu/code/algs4-data.zip" algs4-data.zip)
+    extract (algs4-data.zip ${ALGS4_DATA_DIR})
   endif()
 
   add_algs4_executable (accumulator_demo SOURCE demos/accumulator_client.cpp LINK Accumulator StdIn StdOut)
   add_algs4_executable (stopwatch_demo SOURCE demos/stopwatch_client.cpp LINK Accumulator Stopwatch StdOut)
   add_algs4_executable (threesum_demo SOURCE demos/threesum_client.cpp LINK ThreeSum Stopwatch StdOut In)
-  add_algs4_executable (binarysearch_demo SOURCE demos/binarysearch_client.cpp LINK StdOut StdIn In BinarySearch)
-  add_algs4_executable (threesumfast_demo SOURCE demos/threesumfast_client.cpp LINK ThreeSumFast StdOut In BinarySearch)
+  add_algs4_executable (binarysearch_demo SOURCE demos/binarysearch_client.cpp LINK StdOut StdIn In
+                        BinarySearch)
+  add_algs4_executable (threesumfast_demo SOURCE demos/threesumfast_client.cpp LINK ThreeSumFast StdOut In
+                        BinarySearch)
 endif()
