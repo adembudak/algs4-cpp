@@ -74,9 +74,9 @@ short readShort() {
 }
 
 byte readByte() {
-    // no overload for std::int8_t
+    // There is no overload for std::int8_t
     // on operator>> in istream,
-    // just reading int and assigning it to
+    // so just reading int and assigning it to
     // int8_t, implicit conversion occurs.
     int i;
     std::cin >> i;
@@ -85,7 +85,7 @@ byte readByte() {
 
 bool readBoolean() {
     bool q;
-    std::cin >> std::boolalpha >> q;
+    std::cin >> q;
     return q;
 }
 
