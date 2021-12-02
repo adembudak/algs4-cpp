@@ -1,7 +1,5 @@
-algs4/
+/algs4/
 todo
-build/
-demos/algs4-data/
+/build/
+/demos/algs4-data/
 .cache/
-
-
