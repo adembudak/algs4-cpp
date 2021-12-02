@@ -35,6 +35,10 @@ void println(const int x) {
     std::cout << x << '\n';
 }
 
+void println(const std::size_t x) {
+    std::cout << x << '\n';
+}
+
 void println(const double x) {
     std::cout.precision(std::numeric_limits<double>::digits10);
     std::cout << x << '\n';
@@ -78,6 +82,10 @@ void print(const char x) {
 }
 
 void print(const int x) {
+    std::cout << x << std::flush;
+}
+
+void print(const std::size_t x) {
     std::cout << x << std::flush;
 }
 
