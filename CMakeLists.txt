@@ -23,6 +23,7 @@ add_algs4_library (In SOURCES src/In.cpp)
 add_algs4_library (Out SOURCES src/Out.cpp)
 
 add_algs4_library (Accumulator SOURCES src/Accumulator.cpp)
+add_algs4_library (Counter SOURCES src/Counter.cpp)
 add_algs4_library (Stopwatch SOURCES src/Stopwatch.cpp)
 add_algs4_library (BinarySearch SOURCES src/BinarySearch.cpp)
 add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
@@ -35,7 +36,7 @@ if(WITH_TESTS)
   #[[
 # Following commented tests expect argument from std::cin
 # FIXME: how to pass file argument to std::cin with add_test(),
-# i.e. mimic this shell behivior: StdIn_read_one_by_one < primitives.txt
+# i.e. mimic this shell bahavior: StdIn_read_one_by_one < primitives.txt
 #                                                       ^--- this thing
 
 add_algs4_test (StdIn_read_one_by_one SOURCE tests/StdIn_read_one_by_one_test.cpp LINK StdIn)
