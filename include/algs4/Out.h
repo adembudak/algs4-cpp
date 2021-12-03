@@ -3,6 +3,7 @@
 
 #include <iosfwd>
 #include <iostream>
+#include <string>
 
 #include <cstdint>
 
@@ -28,6 +29,7 @@ class Out {
     void println(const int x);
     void println(const long x);
     void println(const byte x);
+    void println(const std::string &x);
 
     void print();
     // void print(Object x) // not implmented
@@ -38,6 +40,7 @@ class Out {
     void print(const int x);
     void print(const long x);
     void print(const byte x);
+    void print(const std::string &x);
 
     // TODO: implement formatted output to file
     // void printf(const char *format, ...);
