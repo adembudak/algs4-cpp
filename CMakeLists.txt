@@ -22,6 +22,7 @@ add_algs4_library (StdIn SOURCES src/StdIn.cpp)
 add_algs4_library (In SOURCES src/In.cpp)
 add_algs4_library (Out SOURCES src/Out.cpp)
 add_algs4_library (StdArrayIO SOURCES src/StdArrayIO.cpp)
+add_algs4_library (StdStats SOURCES src/StdStats.cpp)
 
 add_algs4_library (Accumulator SOURCES src/Accumulator.cpp)
 add_algs4_library (Counter SOURCES src/Counter.cpp)
@@ -89,6 +90,9 @@ add_algs4_test (StdIn_hasNextLine_test SOURCE tests/StdIn_hasNextLine_test.cpp L
   endif()
   add_algs4_test (StdArrayIO_test SOURCE tests/StdArrayIO_test.cpp WORKING_DIR ${ALGS4_SOURCE_DIR}/tests LINK
                   StdArrayIO StdIn StdOut)
+
+  add_algs4_test (StdStats_test SOURCE tests/StdStats_test.cpp WORKING_DIR ${ALGS4_SOURCE_DIR}/tests LINK
+                  StdStats StdOut StdArrayIO StdIn)
 endif()
 
 if(WITH_DEMOS)
