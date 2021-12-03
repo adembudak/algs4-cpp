@@ -109,4 +109,5 @@ if(WITH_DEMOS)
   add_algs4_executable (threesumfast_demo SOURCE demos/threesumfast_client.cpp LINK ThreeSumFast StdOut In
                         BinarySearch)
   add_algs4_executable (average SOURCE src/Average.cpp LINK StdOut StdIn)
+  add_algs4_executable (cat SOURCE src/cat.cpp LINK Out In)
 endif()
