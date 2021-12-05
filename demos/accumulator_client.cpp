@@ -2,8 +2,6 @@
 #include "algs4/StdIn.h"
 #include "algs4/StdOut.h"
 
-#include <iostream>
-
 int main() {
     using namespace algs4;
 
