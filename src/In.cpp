@@ -95,7 +95,7 @@ byte In::readByte() {
 
 bool In::readBoolean() {
     bool q;
-    fin >> std::boolalpha >> q;
+    fin >> q;
     return q;
 }
 
