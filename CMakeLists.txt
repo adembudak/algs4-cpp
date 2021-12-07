@@ -32,6 +32,7 @@ add_algs4_library (BinarySearch SOURCES src/BinarySearch.cpp)
 add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
 add_algs4_library (ThreeSumFast SOURCES src/ThreeSumFast.cpp)
 add_algs4_library (Date SOURCES src/Date.cpp)
+add_algs4_library (Knuth SOURCES src/Knuth.cpp)
 
 if(WITH_TESTS)
   enable_testing ()
@@ -106,7 +107,7 @@ if(WITH_TESTS)
   add_algs4_test (In_readAllLines_test WORKING_DIR ${ALGS4_TEST_DIR} ARGUMENTS loremIpsum.dat)
 
   add_algs4_executable (Out_test SOURCE tests/Out_test.cpp LINK Out)
-  add_algs4_test (Out_test LINK Out)
+  add_algs4_test (Out_test)
 
   if(NOT EXISTS ${ALGS4_DATA_DIR}/tinyDouble1D.txt)
     download ("https://introcs.cs.princeton.edu/java/22library/tinyDouble1D.txt"
@@ -127,6 +128,10 @@ if(WITH_TESTS)
 
   add_algs4_executable (StdRandom_test SOURCE tests/StdRandom_test.cpp LINK StdRandom StdOut)
   add_algs4_test (StdRandom_test WORKING_DIR ARGUMENTS 5)
+
+  add_algs4_executable (Knuth_test SOURCE tests/Knuth_test.cpp LINK Knuth StdIn StdOut)
+  add_algs4_test (Knuth_test TAKE_INPUT_FROM_STDIN ARGUMENTS ${ALGS4_DATA_DIR}/cards.txt WORKING_DIR
+                 ${ALGS4_TEST_DIR})
 endif()
 
 if(WITH_DEMOS)
