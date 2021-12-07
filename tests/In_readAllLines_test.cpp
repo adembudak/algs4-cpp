@@ -1,7 +1,7 @@
 #include "algs4/In.h"
 #include <cassert>
 
-// test: In_readAllLines_test lorem_ipsum.dat
+// $ In_readAllLines_test loremIpsum.dat
 
 int main(int argc, char *argv[]) {
     using namespace algs4;

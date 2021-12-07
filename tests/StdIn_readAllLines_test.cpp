@@ -1,7 +1,7 @@
 #include "algs4/StdIn.h"
 #include "algs4/StdOut.h"
 
-// run by: $ StdIn_readAllLines_test < lorem_ipsum.dat
+// $ StdIn_readAllLines_test < loremIpsum.dat
 
 int main() {
     using namespace algs4;
