@@ -31,6 +31,7 @@ add_algs4_library (Stopwatch SOURCES src/Stopwatch.cpp)
 add_algs4_library (BinarySearch SOURCES src/BinarySearch.cpp)
 add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
 add_algs4_library (ThreeSumFast SOURCES src/ThreeSumFast.cpp)
+add_algs4_library (Date SOURCES src/Date.cpp)
 
 if(WITH_TESTS)
   enable_testing ()
@@ -117,7 +118,7 @@ if(WITH_TESTS)
   endif()
 
   add_algs4_executable (StdArrayIO_test SOURCE tests/StdArrayIO_test.cpp LINK StdArrayIO StdIn StdOut)
-  # todo create test for StdArrayIO
+  # TODO: create test for StdArrayIO
 
   add_algs4_executable (StdStats_test SOURCE tests/StdStats_test.cpp LINK StdStats StdOut StdArrayIO StdIn)
 
@@ -144,4 +145,5 @@ if(WITH_DEMOS)
   add_algs4_executable (average SOURCE src/Average.cpp LINK StdOut StdIn)
   add_algs4_executable (cat SOURCE src/cat.cpp LINK Out In)
   add_algs4_executable (randomseq SOURCE src/RandomSeq.cpp LINK StdRandom StdOut)
+  add_algs4_executable (date_demo SOURCE demos/date_client.cpp LINK Date StdOut)
 endif()
