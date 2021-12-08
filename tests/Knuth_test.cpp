@@ -12,4 +12,6 @@ int main(int argc, const char *argv[]) {
     for (int i = 0; i < a.size(); i++) {
         StdOut::println(a[i]);
     }
+
+    return 0;
 }

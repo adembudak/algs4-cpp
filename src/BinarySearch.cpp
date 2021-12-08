@@ -10,10 +10,8 @@ int indexOf(const std::vector<int> &a, int key) {
     while (lo <= hi) {
         int mid = lo + ((hi - lo) / 2);
         if (key < a[mid]) hi = mid - 1;
-        else if (key > a[mid])
-            lo = mid + 1;
-        else
-            return mid;
+        else if (key > a[mid]) lo = mid + 1;
+        else return mid;
     }
     return -1;
 }

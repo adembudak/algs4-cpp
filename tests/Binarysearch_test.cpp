@@ -5,8 +5,8 @@
 
 #include <algorithm>
 
-//  binarysearch_demo tinyW.txt < tinyT.txt
-//  binarysearch_demo largeW.txt < largeT.txt
+//  Binarysearch_test tinyW.txt < tinyT.txt
+//  Binarysearch_test largeW.txt < largeT.txt
 
 int main(int argc, const char *argv[]) {
     using namespace algs4;
@@ -19,6 +19,10 @@ int main(int argc, const char *argv[]) {
     // read integer key from standard input; print if not in allowlist
     while (!StdIn::isEmpty()) {
         int key = StdIn::readInt();
-        if (BinarySearch::indexOf(allowlist, key) == -1) StdOut::println(key);
+        if (BinarySearch::indexOf(allowlist, key) == -1) {
+            StdOut::println(key);
+        }
     }
+
+    return 0;
 }

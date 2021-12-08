@@ -2,7 +2,7 @@
 #include "algs4/StdArrayIO.h"
 #include "algs4/StdOut.h"
 
-// run by: StdStats_test < demos/algs4-data/tinyDouble1D.txt
+// run by: StdStats_test < algs4-data/tinyDouble1D.txt
 
 int main(int argc, const char *argv[]) {
     using namespace algs4;
@@ -16,4 +16,6 @@ int main(int argc, const char *argv[]) {
     StdOut::printf("       var %10.3f\n", StdStats::var(a));
     StdOut::printf("   stddevp %10.3f\n", StdStats::stddevp(a));
     StdOut::printf("      varp %10.3f\n", StdStats::varp(a));
+
+    return 0;
 }

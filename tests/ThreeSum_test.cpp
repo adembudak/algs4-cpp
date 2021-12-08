@@ -3,7 +3,7 @@
 #include "algs4/In.h"
 #include "algs4/StdOut.h"
 
-// run by: ./threesum_demo algs4-data/1Kints.txt
+// $ Threesum_test 1Kints.txt
 
 int main(int argc, const char *argv[]) {
     using namespace algs4;
@@ -15,4 +15,6 @@ int main(int argc, const char *argv[]) {
     int count = ThreeSum::count(a);
     StdOut::println("Elapsed time = " + std::to_string(timer.elapsedTime()));
     StdOut::println(count);
+
+    return 0;
 }

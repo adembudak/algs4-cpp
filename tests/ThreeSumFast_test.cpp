@@ -9,4 +9,6 @@ int main(int argc, const char *argv[]) {
     auto a = in.readAllInts();
     int count = ThreeSumFast::count(a);
     StdOut::println(count);
+
+    return 0;
 }

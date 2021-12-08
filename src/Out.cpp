@@ -55,6 +55,10 @@ void Out::println(const std::string &x) {
     out << x << '\n';
 }
 
+void Out::println(const char *x) {
+    out << x << '\n';
+}
+
 void Out::print() {
     out << std::flush;
 }
@@ -91,4 +95,7 @@ void Out::print(const std::string &x) {
     out << x << std::flush;
 }
 
+void Out::print(const char *x) {
+    out << x << std::flush;
+}
 }

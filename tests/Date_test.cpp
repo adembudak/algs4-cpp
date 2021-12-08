@@ -22,4 +22,6 @@ int main() {
         birthday = birthday.next();
         StdOut::println(birthday);
     }
+
+    return 0;
 }

@@ -2,6 +2,8 @@
 #include "algs4/StdIn.h"
 #include "algs4/StdOut.h"
 
+// $ Accumulator_test test-input/doubles.dat
+
 int main() {
     using namespace algs4;
 
@@ -17,4 +19,6 @@ int main() {
     StdOut::printf("var    = %.5f\n", stats.var());
 
     StdOut::println(stats);
+
+    return 0;
 }

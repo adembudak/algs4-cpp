@@ -1,7 +1,8 @@
 #include "algs4/StdArrayIO.h"
 #include "algs4/StdOut.h"
 
-// cat tinyDouble1D.txt tinyDouble2D.txt tinyBoolean2D.txt | StdArrayIO_test
+// cat algs4-data/tinyDouble1D.txt algs4-data/tinyDouble2D.txt \
+// algs4-data/tinyBoolean2D.txt |  StdArrayIO_test
 
 int main() {
     using namespace algs4;

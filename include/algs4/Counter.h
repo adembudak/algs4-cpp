@@ -10,6 +10,7 @@ class Counter {
     int count = 0;
 
   public:
+    Counter() = default;
     Counter(const std::string &id);
 
     void increment();

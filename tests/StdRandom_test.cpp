@@ -30,4 +30,6 @@ int main(int argc, const char *argv[]) {
             StdOut::print(s);
         StdOut::println();
     }
+
+    return 0;
 }

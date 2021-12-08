@@ -3,14 +3,7 @@
 
 #include <cstdlib>
 
-/*
- * *  % java RandomSeq 5 100.0 200.0
- *  123.43
- *  153.13
- *  144.38
- *  155.18
- *  104.02
- */
+// $ RandomSeq 5 100.0 200.0
 
 int main(int argc, const char *argv[]) {
     using namespace algs4;
