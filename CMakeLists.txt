@@ -105,3 +105,5 @@ add_algs4_test (RandomSeq ARGUMENTS 5 100.0 200.0)
 
 add_algs4_executable (Transaction_test SOURCE tests/Transaction_test.cpp LINK Transaction StdOut)
 add_algs4_test (Transaction_test)
+
+add_algs4_executable (DoublingTest SOURCE tests/DoublingTest.cpp LINK Stopwatch StdRandom ThreeSum StdOut)
