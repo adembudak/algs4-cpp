@@ -15,6 +15,7 @@ class Date {
 
   public:
     Date(const int month, const int day, const int year);
+    Date(const std::string &date);
 
     int month() const;
     int day() const;

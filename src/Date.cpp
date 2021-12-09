@@ -1,5 +1,9 @@
 #include "algs4/Date.h"
+
 #include <stdexcept>
+#include <string>
+#include <regex>
+#include <cstdlib>
 
 namespace algs4 {
 
@@ -8,6 +12,16 @@ Date::Date(const int month, const int day, const int year) {
     m_month = month;
     m_day = day;
     m_year = year;
+}
+
+Date::Date(const std::string &date) {
+    // poor man's parser of mm/dd/yy kind of date
+    std::regex p{"\\d+"};
+    auto it = std::sregex_iterator(date.begin(), date.end(), p);
+
+    m_month = std::stoi((*it++).str());
+    m_day = std::stoi((*it++).str());
+    m_year = std::stoi((*it).str());
 }
 
 int Date::month() const {
