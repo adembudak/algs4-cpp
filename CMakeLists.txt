@@ -45,6 +45,7 @@ add_algs4_library (BinarySearch SOURCES src/BinarySearch.cpp)
 add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
 add_algs4_library (ThreeSumFast SOURCES src/ThreeSumFast.cpp)
 add_algs4_library (Date SOURCES src/Date.cpp)
+add_algs4_library (Transaction SOURCES src/Transaction.cpp DEPENDENCIES Date)
 add_algs4_library (Knuth SOURCES src/Knuth.cpp)
 
 ##############################################################
@@ -102,3 +103,5 @@ add_algs4_executable (Cat SOURCE src/Cat.cpp LINK Out In)
 add_algs4_executable (RandomSeq SOURCE src/RandomSeq.cpp LINK StdRandom StdOut)
 add_algs4_test (RandomSeq ARGUMENTS 5 100.0 200.0)
 
+add_algs4_executable (Transaction_test SOURCE tests/Transaction_test.cpp LINK Transaction StdOut)
+add_algs4_test (Transaction_test)
