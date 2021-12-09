@@ -14,6 +14,7 @@ class Date {
     int m_year;
 
   public:
+    Date() = default;
     Date(const int month, const int day, const int year);
     Date(const std::string &date);
 
