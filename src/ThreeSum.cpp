@@ -8,7 +8,8 @@ namespace algs4 {
 namespace ThreeSum {
 
 void printAll(const std::vector<int> &a) {
-    std::size_t n = a.size();
+    const std::size_t n = a.size();
+
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             for (int k = j + 1; k < n; k++) {
@@ -22,8 +23,9 @@ void printAll(const std::vector<int> &a) {
 }
 
 int count(const std::vector<int> &a) {
-    int n = a.size();
+    const std::size_t n = a.size();
     int count = 0;
+
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             for (int k = j + 1; k < n; k++) {
