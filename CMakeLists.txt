@@ -107,3 +107,4 @@ add_algs4_executable (Transaction_test SOURCE tests/Transaction_test.cpp LINK Tr
 add_algs4_test (Transaction_test)
 
 add_algs4_executable (DoublingTest SOURCE src/DoublingTest.cpp LINK Stopwatch StdRandom ThreeSum StdOut)
+add_algs4_executable (DoublingRatio SOURCE src/DoublingRatio.cpp LINK Stopwatch StdRandom ThreeSum StdOut)
