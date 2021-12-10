@@ -1,6 +1,7 @@
 #ifndef IN_H
 #define IN_H
 
+#include <httplib.h>
 #include <string>
 #include <vector>
 #include <fstream>
@@ -14,12 +15,11 @@ class In {
     std::ifstream fin;
 
   public:
-    // todo: implement these
-    // In(Socket socket);
-    // In(Url url);
-
+    In() = default;
     In(const std::string &file);
     In(const char *file);
+
+    bool open(const std::string &input);
 
     bool exists();
     bool isEmpty();

@@ -1,5 +1,7 @@
 #include "algs4/In.h"
 
+#include <httplib.h>
+
 #include <string>
 #include <vector>
 #include <fstream>
@@ -17,6 +19,36 @@ In::In(const std::string &file) {
 In::In(const char *file) {
     fin.open(file);
     assert(fin.is_open());
+}
+
+bool In::open(const std::string &input) {
+    if (fin.is_open()) { // if it's already open close it.
+        fin.close();
+    }
+
+    if (input.substr(0, 4) == "http") { //  is input an url?
+        std::string url = input;
+        std::string hostname = url.substr(0, url.find_first_of('/', 8));
+        std::string path = url.substr(url.find_first_of('/', 8));
+
+        httplib::Client client(hostname);
+        client.set_follow_location(true);
+
+        httplib::Result ret = client.Get(path.c_str());
+
+        std::ofstream fout;
+        fout.open("tmp.txt");
+        assert(fout.is_open());
+        fout << ret->body;
+        fout.close();
+
+        fin.open("tmp.txt");
+    } else {
+        // input is a file or a path
+        fin.open(input);
+    }
+
+    return fin.is_open();
 }
 
 bool In::exists() {
