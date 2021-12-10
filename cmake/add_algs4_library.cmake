@@ -1,7 +1,7 @@
 function(add_algs4_library name)
   set (options PRIVATE PUBLIC INTERFACE)
   set (one_value_args TARGETS)
-  set (multi_value_args SOURCES DEPENDENCIES)
+  set (multi_value_args SOURCES DEPENDS)
 
   cmake_parse_arguments (${name} "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
@@ -15,6 +15,6 @@ function(add_algs4_library name)
   endif()
 
   add_library (${name} ${${name}_SOURCES})
-  target_link_libraries (${name} ${scope} ${${name}_DEPENDENCIES})
+  target_link_libraries (${name} ${scope} ${${name}_DEPENDS})
   target_include_directories (${name} PUBLIC ${ALGS4_SOURCE_DIR}/include)
 endfunction()

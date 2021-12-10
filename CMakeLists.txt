@@ -50,7 +50,7 @@ add_algs4_library (StaticSETofInts SOURCES src/StaticSETofInts.cpp)
 add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
 add_algs4_library (ThreeSumFast SOURCES src/ThreeSumFast.cpp)
 add_algs4_library (Date SOURCES src/Date.cpp)
-add_algs4_library (Transaction SOURCES src/Transaction.cpp DEPENDENCIES Date)
+add_algs4_library (Transaction SOURCES src/Transaction.cpp DEPENDS Date)
 add_algs4_library (Knuth SOURCES src/Knuth.cpp)
 
 ##############################################################
