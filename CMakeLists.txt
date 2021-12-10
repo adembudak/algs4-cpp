@@ -34,7 +34,7 @@ if(NOT EXISTS ${ALGS4_DATA_DIR}/tinyAllowlist.txt)
   download ("https://algs4.cs.princeton.edu/11model/largeText.txt" ${ALGS4_DATA_DIR}/largeText.txt)
 endif()
 
-find_package(httplib QUIET REQUIRED CONFIG)
+find_package (httplib QUIET REQUIRED CONFIG)
 
 add_algs4_library (StdOut SOURCES src/StdOut.cpp)
 add_algs4_library (StdIn SOURCES src/StdIn.cpp)
@@ -80,3 +80,5 @@ add_algs4_executable (Transaction_test SOURCE tests/Transaction_test.cpp LINK Tr
 add_algs4_executable (DoublingTest SOURCE src/DoublingTest.cpp LINK Stopwatch StdRandom ThreeSum StdOut)
 add_algs4_executable (DoublingRatio SOURCE src/DoublingRatio.cpp LINK Stopwatch StdRandom ThreeSum StdOut)
 add_algs4_executable (Allowlist SOURCE src/Allowlist.cpp LINK StaticSETofInts In StdIn StdOut)
+add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_test.cpp LINK StdIn StdOut)
+add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK StdOut)
