@@ -24,10 +24,26 @@ endif()
 if(NOT EXISTS ${ALGS4_DATA_DIR}/tinyDouble1D.txt)
   download ("https://introcs.cs.princeton.edu/java/22library/tinyDouble1D.txt"
             ${ALGS4_DATA_DIR}/tinyDouble1D.txt)
+
   download ("https://introcs.cs.princeton.edu/java/22library/tinyDouble2D.txt"
             ${ALGS4_DATA_DIR}/tinyDouble2D.txt)
+
   download ("https://introcs.cs.princeton.edu/java/22library/tinyBoolean2D.txt"
             ${ALGS4_DATA_DIR}/tinyBoolean2D.txt)
+endif()
+
+if(NOT EXISTS ${ALGS4_DATA_DIR}/tinyAllowlist.txt)
+  download ("https://algs4.cs.princeton.edu/11model/tinyAllowlist.txt"
+            ${ALGS4_DATA_DIR}/tinyAllowlist.txt)
+
+  download ("https://algs4.cs.princeton.edu/11model/tinyText.txt"
+            ${ALGS4_DATA_DIR}/tinyText.txt)
+
+  download ("https://algs4.cs.princeton.edu/11model/largeAllowlist.txt"
+            ${ALGS4_DATA_DIR}/largeAllowlist.txt)
+
+  download ("https://algs4.cs.princeton.edu/11model/largeText.txt"
+            ${ALGS4_DATA_DIR}/largeText.txt)
 endif()
 
 add_algs4_library (StdOut SOURCES src/StdOut.cpp)
@@ -42,6 +58,7 @@ add_algs4_library (Accumulator SOURCES src/Accumulator.cpp)
 add_algs4_library (Counter SOURCES src/Counter.cpp)
 add_algs4_library (Stopwatch SOURCES src/Stopwatch.cpp)
 add_algs4_library (BinarySearch SOURCES src/BinarySearch.cpp)
+add_algs4_library (StaticSETofInts SOURCES src/StaticSETofInts.cpp)
 add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
 add_algs4_library (ThreeSumFast SOURCES src/ThreeSumFast.cpp)
 add_algs4_library (Date SOURCES src/Date.cpp)
@@ -108,3 +125,6 @@ add_algs4_test (Transaction_test)
 
 add_algs4_executable (DoublingTest SOURCE src/DoublingTest.cpp LINK Stopwatch StdRandom ThreeSum StdOut)
 add_algs4_executable (DoublingRatio SOURCE src/DoublingRatio.cpp LINK Stopwatch StdRandom ThreeSum StdOut)
+
+add_algs4_executable (Allowlist SOURCE src/Allowlist.cpp LINK StaticSETofInts In StdIn StdOut)
+# TODO register Allowlist
