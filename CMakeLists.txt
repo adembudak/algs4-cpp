@@ -53,6 +53,7 @@ add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
 add_algs4_library (ThreeSumFast SOURCES src/ThreeSumFast.cpp)
 add_algs4_library (Date SOURCES src/Date.cpp)
 add_algs4_library (Transaction SOURCES src/Transaction.cpp DEPENDS Date)
+add_algs4_library (Interval1D SOURCES src/Interval1D.cpp)
 add_algs4_library (Knuth SOURCES src/Knuth.cpp)
 
 ##############################################################
@@ -82,5 +83,6 @@ add_algs4_executable (DoublingRatio SOURCE src/DoublingRatio.cpp LINK Stopwatch 
 add_algs4_executable (Allowlist SOURCE src/Allowlist.cpp LINK StaticSETofInts In StdIn StdOut)
 add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_test.cpp LINK StdIn StdOut)
 add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK StdOut)
-
 add_algs4_executable (FlipsMax SOURCE src/FlipsMax.cpp LINK Counter StdRandom StdOut)
+add_algs4_executable (Interval1D_test SOURCE tests/Interval1D_test.cpp LINK Interval1D StdOut)
+
