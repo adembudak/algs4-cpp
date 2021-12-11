@@ -82,3 +82,5 @@ add_algs4_executable (DoublingRatio SOURCE src/DoublingRatio.cpp LINK Stopwatch 
 add_algs4_executable (Allowlist SOURCE src/Allowlist.cpp LINK StaticSETofInts In StdIn StdOut)
 add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_test.cpp LINK StdIn StdOut)
 add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK StdOut)
+
+add_algs4_executable (FlipsMax SOURCE src/FlipsMax.cpp LINK Counter StdRandom StdOut)
