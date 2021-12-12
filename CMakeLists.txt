@@ -53,9 +53,10 @@ add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
 add_algs4_library (ThreeSumFast SOURCES src/ThreeSumFast.cpp)
 add_algs4_library (Date SOURCES src/Date.cpp)
 add_algs4_library (Transaction SOURCES src/Transaction.cpp DEPENDS Date)
-add_algs4_library (Interval1D SOURCES src/Interval1D.cpp)
-add_algs4_library (Knuth SOURCES src/Knuth.cpp)
 add_algs4_library (Point2D SOURCES src/Point2D.cpp)
+add_algs4_library (Interval1D SOURCES src/Interval1D.cpp)
+add_algs4_library (Interval2D SOURCES src/Interval2D.cpp DEPENDS Point2D Interval1D)
+add_algs4_library (Knuth SOURCES src/Knuth.cpp)
 
 ##############################################################
 
@@ -86,4 +87,5 @@ add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_te
 add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK StdOut)
 add_algs4_executable (FlipsMax SOURCE src/FlipsMax.cpp LINK Counter StdRandom StdOut)
 add_algs4_executable (Interval1D_test SOURCE tests/Interval1D_test.cpp LINK Interval1D StdOut)
+add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Interval2D Interval1D Point2D Counter StdRandom StdOut)
 
