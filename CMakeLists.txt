@@ -55,6 +55,7 @@ add_algs4_library (Date SOURCES src/Date.cpp)
 add_algs4_library (Transaction SOURCES src/Transaction.cpp DEPENDS Date)
 add_algs4_library (Interval1D SOURCES src/Interval1D.cpp)
 add_algs4_library (Knuth SOURCES src/Knuth.cpp)
+add_algs4_library (Point2D SOURCES src/Point2D.cpp)
 
 ##############################################################
 
