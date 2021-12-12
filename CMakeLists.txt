@@ -88,4 +88,5 @@ add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.c
 add_algs4_executable (FlipsMax SOURCE src/FlipsMax.cpp LINK Counter StdRandom StdOut)
 add_algs4_executable (Interval1D_test SOURCE tests/Interval1D_test.cpp LINK Interval1D StdOut)
 add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Interval2D Interval1D Point2D Counter StdRandom StdOut)
+add_algs4_executable (Rolls SOURCE src/Rolls.cpp LINK StdRandom Counter StdOut)
 
