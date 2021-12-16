@@ -57,6 +57,7 @@ add_algs4_library (Point2D SOURCES src/Point2D.cpp)
 add_algs4_library (Interval1D SOURCES src/Interval1D.cpp)
 add_algs4_library (Interval2D SOURCES src/Interval2D.cpp DEPENDS Point2D Interval1D)
 add_algs4_library (Knuth SOURCES src/Knuth.cpp)
+add_algs4_library (QuickFindUF SOURCES src/QuickFindUF.cpp)
 
 ##############################################################
 
@@ -90,4 +91,5 @@ add_algs4_executable (Interval1D_test SOURCE tests/Interval1D_test.cpp LINK Inte
 add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Interval2D Interval1D Point2D Counter StdRandom StdOut)
 add_algs4_executable (Rolls SOURCE src/Rolls.cpp LINK StdRandom Counter StdOut)
 add_algs4_executable (Fibonacci SOURCE src/Fibonacci.cpp LINK StdOut)
+add_algs4_executable (QuickFindUF_test SOURCE tests/QuickFindUF_test.cpp LINK QuickFindUF StdIn StdOut)
 
