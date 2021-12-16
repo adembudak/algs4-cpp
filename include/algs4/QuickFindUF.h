@@ -2,6 +2,7 @@
 #define QUICKFINDUF_H
 
 #include <vector>
+#include <cstdint>
 
 namespace algs4 {
 
@@ -11,15 +12,15 @@ class QuickFindUF {
     int m_count;
 
   private:
-    void validate(const int p);
+    void validate(const std::size_t p);
 
   public:
-    QuickFindUF(const int n);
+    QuickFindUF(const std::size_t n);
 
     int count() const;
-    int find(const int p);
-    [[deprecated]] bool connected(const int p, const int q);
-    void Union(const int p, const int q); // union is reserved word
+    int find(const std::size_t p);
+    [[deprecated]] bool connected(const std::size_t p, const std::size_t q);
+    void Union(const std::size_t p, const std::size_t q); // union is reserved word
 };
 }
 
