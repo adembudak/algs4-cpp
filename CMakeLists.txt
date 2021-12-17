@@ -60,6 +60,7 @@ add_algs4_library (Knuth SOURCES src/Knuth.cpp)
 add_algs4_library (QuickFindUF SOURCES src/QuickFindUF.cpp)
 add_algs4_library (QuickUnionUF SOURCES src/QuickUnionUF.cpp)
 add_algs4_library (WeightedQuickUnionUF SOURCES src/WeightedQuickUnionUF.cpp)
+add_algs4_library (UF SOURCES src/UF.cpp)
 
 ##############################################################
 
@@ -90,10 +91,12 @@ add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_te
 add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK StdOut)
 add_algs4_executable (FlipsMax SOURCE src/FlipsMax.cpp LINK Counter StdRandom StdOut)
 add_algs4_executable (Interval1D_test SOURCE tests/Interval1D_test.cpp LINK Interval1D StdOut)
-add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Interval2D Interval1D Point2D Counter StdRandom StdOut)
+add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Interval2D Interval1D Point2D
+                      Counter StdRandom StdOut)
 add_algs4_executable (Rolls SOURCE src/Rolls.cpp LINK StdRandom Counter StdOut)
 add_algs4_executable (Fibonacci SOURCE src/Fibonacci.cpp LINK StdOut)
 add_algs4_executable (QuickFindUF_test SOURCE tests/QuickFindUF_test.cpp LINK QuickFindUF StdIn StdOut)
 add_algs4_executable (QuickUnionUF_test SOURCE tests/QuickUnionUF_test.cpp LINK QuickUnionUF StdIn StdOut)
-add_algs4_executable (WeightedQuickUnionUF_test SOURCE tests/WeightedQuickUnionUF_test.cpp LINK WeightedQuickUnionUF StdIn StdOut)
-
+add_algs4_executable (WeightedQuickUnionUF_test SOURCE tests/WeightedQuickUnionUF_test.cpp LINK
+                      WeightedQuickUnionUF StdIn StdOut)
+add_algs4_executable (UF_test SOURCE tests/UF_test.cpp LINK UF StdIn StdOut)
