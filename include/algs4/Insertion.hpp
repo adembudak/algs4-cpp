@@ -80,7 +80,7 @@ template <typename T> bool isSorted(std::vector<T> &a) {
 }
 
 template <typename T> bool isSorted(std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
-    for (std::size_t i = lo; i < hi; i++)
+    for (std::size_t i = lo + 1; i < hi; i++)
         if (a[i] < a[i - 1]) return false;
     return true;
 }
@@ -91,7 +91,7 @@ template <typename T, typename Comp> bool isSorted(std::vector<T> &a, Comp compa
 
 template <typename T, typename Comp>
 bool isSorted(std::vector<T> &a, const std::size_t lo, const std::size_t hi, Comp comparator) {
-    for (std::size_t i = lo; i < hi; i++)
+    for (std::size_t i = lo + 1; i < hi; i++)
         if (comparator(a[i] < a[i - 1])) return false;
     return true;
 }
