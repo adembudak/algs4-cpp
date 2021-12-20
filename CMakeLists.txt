@@ -67,6 +67,8 @@ add_algs4_library (QuickUnionUF SOURCES src/QuickUnionUF.cpp)
 add_algs4_library (WeightedQuickUnionUF SOURCES src/WeightedQuickUnionUF.cpp)
 add_algs4_library (UF SOURCES src/UF.cpp)
 
+add_algs4_library (Insertion INTERFACE)
+
 ##############################################################
 
 add_algs4_executable (StdOut_test SOURCE tests/StdOut_test.cpp LINK StdOut)
@@ -109,3 +111,5 @@ add_algs4_executable (QuickUnionUF_test SOURCE tests/QuickUnionUF_test.cpp LINK 
 add_algs4_executable (WeightedQuickUnionUF_test SOURCE tests/WeightedQuickUnionUF_test.cpp LINK
                       WeightedQuickUnionUF StdIn StdOut)
 add_algs4_executable (UF_test SOURCE tests/UF_test.cpp LINK UF StdIn StdOut)
+
+add_algs4_executable (Insertion_test SOURCE tests/Insertion_test.cpp LINK Insertion StdIn StdOut)
