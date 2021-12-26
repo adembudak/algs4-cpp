@@ -10,7 +10,8 @@ namespace Merge {
 
 template <typename T>
 bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t hi);
-template <typename T> bool isSorted(const std::vector<T> &a);
+template <typename T>
+bool isSorted(const std::vector<T> &a);
 
 template <typename T>
 void merge(std::vector<T> &a, std::vector<T> &aux, const std::size_t lo, const std::size_t mid,
@@ -43,7 +44,8 @@ void sort(std::vector<T> &a, std::vector<T> &aux, const std::size_t lo, const st
     merge(a, aux, lo, mid, hi);
 }
 
-template <typename T> void sort(std::vector<T> &a) {
+template <typename T>
+void sort(std::vector<T> &a) {
     std::vector<T> aux(a.size());
     sort(a, aux, 0, a.size() - 1);
     assert(isSorted(a));
@@ -56,7 +58,8 @@ bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t h
     return true;
 }
 
-template <typename T> bool isSorted(const std::vector<T> &a) {
+template <typename T>
+bool isSorted(const std::vector<T> &a) {
     return isSorted(a, 0, a.size() - 1);
 }
 
@@ -89,7 +92,8 @@ void sort(std::vector<T> &a, std::vector<int> &index, std::vector<int> &aux, std
     merge(a, index, aux, lo, mid, hi);
 }
 
-template <typename T> std::vector<int> indexSort(std::vector<T> &a) {
+template <typename T>
+std::vector<int> indexSort(std::vector<T> &a) {
     const auto n = a.size();
     std::vector<int> index(n);
     for (std::size_t i = 0; i < n; i++)
@@ -100,7 +104,8 @@ template <typename T> std::vector<int> indexSort(std::vector<T> &a) {
     return index;
 }
 
-template <typename T> void show(const std::vector<T> &a) {
+template <typename T>
+void show(const std::vector<T> &a) {
     for (std::size_t i = 0; i < a.size(); i++) {
         StdOut::println(a[i]);
     }

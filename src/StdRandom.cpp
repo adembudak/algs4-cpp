@@ -254,7 +254,8 @@ void shuffle(std::vector<int> &a, const int lo, const int hi) {
     }
 }
 
-template <typename T> void shuffle(std::vector<T> &a) {
+template <typename T>
+void shuffle(std::vector<T> &a) {
     validateNotNull(a);
 
     int n = a.length;
@@ -266,7 +267,8 @@ template <typename T> void shuffle(std::vector<T> &a) {
     }
 }
 
-template <typename T> void shuffle(std::vector<T> &a, const int lo, const int hi) {
+template <typename T>
+void shuffle(std::vector<T> &a, const int lo, const int hi) {
     validateNotNull(a);
     validateSubarrayIndices(lo, hi, a.length);
 
@@ -316,7 +318,8 @@ std::vector<int> permutation(const int n, const int k) {
     return perm;
 }
 
-template <typename T> void validateNotNull(const std::vector<T> &x) {
+template <typename T>
+void validateNotNull(const std::vector<T> &x) {
     if (x.empty()) {
         throw std::domain_error("argument must not be null");
     }

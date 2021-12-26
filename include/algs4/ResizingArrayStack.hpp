@@ -7,7 +7,8 @@
 
 namespace algs4 {
 
-template <typename Item> class ResizingArrayStack {
+template <typename Item>
+class ResizingArrayStack {
   public:
     using allocator_type = std::allocator<Item>;
     using allocator = std::allocator_traits<allocator_type>;

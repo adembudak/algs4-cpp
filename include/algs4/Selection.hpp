@@ -18,7 +18,8 @@ template <typename T, class Compare> bool isSorted(const std::vector<T> &a, Comp
 template <typename T, class Compare> bool isSorted(const std::vector<T> &a, Compare comp);
 // clang-format on
 
-template <typename T> void sort(std::vector<T> &a) {
+template <typename T>
+void sort(std::vector<T> &a) {
     const auto n = a.size();
     for (std::size_t i = 0; i < n; i++) {
         std::size_t min = i;
@@ -31,7 +32,8 @@ template <typename T> void sort(std::vector<T> &a) {
     assert(isSorted(a));
 }
 
-template <typename T, class Compare> void sort(std::vector<T> &a, Compare comp) {
+template <typename T, class Compare>
+void sort(std::vector<T> &a, Compare comp) {
     const auto n = a.size();
     for (std::size_t i = 0; i < n; i++) {
         std::size_t min = i;
@@ -44,7 +46,8 @@ template <typename T, class Compare> void sort(std::vector<T> &a, Compare comp) 
     assert(isSorted(a, comp));
 }
 
-template <typename T> void exch(std::vector<T> &a, const std::size_t i, const std::size_t j) {
+template <typename T>
+void exch(std::vector<T> &a, const std::size_t i, const std::size_t j) {
     auto swap = a[i];
     a[i] = a[j];
     a[j] = swap;
@@ -57,7 +60,8 @@ bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t h
     return true;
 }
 
-template <typename T> bool isSorted(const std::vector<T> &a) {
+template <typename T>
+bool isSorted(const std::vector<T> &a) {
     return isSorted(a, 0, a.size());
 }
 
@@ -68,11 +72,13 @@ bool isSorted(const std::vector<T> &a, Compare comp, const std::size_t lo, const
     return true;
 }
 
-template <typename T, class Compare> bool isSorted(const std::vector<T> &a, Compare comp) {
+template <typename T, class Compare>
+bool isSorted(const std::vector<T> &a, Compare comp) {
     return isSorted(a, comp, 0, a.size());
 }
 
-template <typename T> void show(const std::vector<T> &a) {
+template <typename T>
+void show(const std::vector<T> &a) {
     for (std::size_t i = 0; i < a.size(); i++) {
         StdOut::println(a[i]);
     }

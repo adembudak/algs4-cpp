@@ -9,9 +9,11 @@
 namespace algs4 {
 namespace BinaryInsertion {
 
-template <typename T> bool isSorted(const std::vector<T> &a);
+template <typename T>
+bool isSorted(const std::vector<T> &a);
 
-template <typename T> void sort(std::vector<T> &a) {
+template <typename T>
+void sort(std::vector<T> &a) {
     const auto n = a.size();
 
     for (std::size_t i = 1; i < n; i++) {
@@ -38,11 +40,13 @@ bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t h
     return true;
 }
 
-template <typename T> bool isSorted(const std::vector<T> &a) {
+template <typename T>
+bool isSorted(const std::vector<T> &a) {
     return isSorted(a, 0, a.size());
 }
 
-template <typename T> void show(const std::vector<T> &a) {
+template <typename T>
+void show(const std::vector<T> &a) {
     for (std::size_t i = 0; i < a.size(); i++) {
         StdOut::println(a[i]);
     }

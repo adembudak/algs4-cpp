@@ -44,15 +44,18 @@ void shuffle(std::vector<double> &a, const int lo, const int hi);
 void shuffle(std::vector<int> &a);
 void shuffle(std::vector<int> &a, const int lo, const int hi);
 
-template <typename T> void shuffle(std::vector<T> &a);
-template <typename T> void shuffle(std::vector<T> &a, const int lo, const int hi);
+template <typename T>
+void shuffle(std::vector<T> &a);
+template <typename T>
+void shuffle(std::vector<T> &a, const int lo, const int hi);
 
 void shuffle(std::vector<char> &a);
 
 std::vector<int> permuation(const int n);
 std::vector<int> permuation(const int n, const int k);
 
-template <typename T> void validateNotNull(const std::vector<T> &x);
+template <typename T>
+void validateNotNull(const std::vector<T> &x);
 
 void validateSubarrayIndices(int lo, int hi, int length);
 
