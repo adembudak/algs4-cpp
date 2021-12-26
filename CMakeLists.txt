@@ -73,6 +73,7 @@ add_algs4_library (BinaryInsertion INTERFACE)
 add_algs4_library (Selection INTERFACE)
 add_algs4_library (Shell INTERFACE)
 add_algs4_library (Merge INTERFACE)
+add_algs4_library (Quick INTERFACE)
 
 ##############################################################
 
@@ -124,3 +125,4 @@ add_algs4_executable (Selection_test SOURCE tests/Selection_test.cpp LINK Select
 add_algs4_executable (Shell_test SOURCE tests/Shell_test.cpp LINK Shell StdIn StdOut)
 
 add_algs4_executable (Merge_test SOURCE tests/Merge_test.cpp LINK Merge StdIn StdOut)
+add_algs4_executable (Quick_test SOURCE tests/Merge_test.cpp LINK Quick StdRandom StdIn StdOut)
