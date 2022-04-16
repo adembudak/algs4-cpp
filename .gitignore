@@ -3,3 +3,4 @@ todo
 /build/
 /demos/algs4-data/
 .cache/
+debug/
