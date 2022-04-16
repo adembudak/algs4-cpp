@@ -74,6 +74,7 @@ add_algs4_library (Selection INTERFACE)
 add_algs4_library (Shell INTERFACE)
 add_algs4_library (Merge INTERFACE)
 add_algs4_library (Quick INTERFACE)
+add_algs4_library (QuickX INTERFACE)
 
 ##############################################################
 
@@ -126,3 +127,4 @@ add_algs4_executable (Shell_test SOURCE tests/Shell_test.cpp LINK Shell StdIn St
 
 add_algs4_executable (Merge_test SOURCE tests/Merge_test.cpp LINK Merge StdIn StdOut)
 add_algs4_executable (Quick_test SOURCE tests/Merge_test.cpp LINK Quick StdRandom StdIn StdOut)
+add_algs4_executable (QuickX_test SOURCE tests/QuickX_test.cpp LINK QuickX StdRandom StdIn StdOut)
