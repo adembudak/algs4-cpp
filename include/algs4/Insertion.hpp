@@ -15,6 +15,7 @@ void exch(std::vector<T> &a, const std::size_t i, const std::size_t j);
 
 template <typename T>
 bool isSorted(std::vector<T> &a);
+
 template <typename T>
 bool isSorted(std::vector<T> &a, const std::size_t lo, const std::size_t hi);
 
@@ -36,8 +37,8 @@ void sort(std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
         for (std::size_t j = i; j > lo && (a[j] < a[j - 1]); j--) {
             exch(a, j, j - 1);
         }
-        assert(isSorted(a, lo, hi));
     }
+    assert(isSorted(a, lo, hi));
 }
 
 template <typename T, class Compare>
@@ -58,8 +59,8 @@ void sort(std::vector<T> &a, const std::size_t lo, const std::size_t hi, Compare
         for (std::size_t j = i; j > lo && comp(a[j], a[j - 1]); j--) {
             exch(a, j, j - 1);
         }
-        assert(isSorted(a, lo, hi, comp));
     }
+    assert(isSorted(a, lo, hi, comp));
 }
 
 template <typename T>
