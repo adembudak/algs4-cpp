@@ -10,11 +10,12 @@ int main(int argc, const char *argv[]) {
     using namespace algs4;
 
     auto a = StdIn::readAllStrings();
-    Quick::sort(a);
-    Quick::show(a);
-    assert(Quick::isSorted(a));
-
     StdRandom::shuffle(a);
+
+    Quick::sort(a);
+
+    assert(Quick::isSorted(a));
+    Quick::show(a);
 
     StdOut::println();
     for (std::size_t i = 0; i < a.size(); i++) {
