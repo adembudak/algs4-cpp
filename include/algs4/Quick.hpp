@@ -7,10 +7,26 @@
 #include <vector>
 #include <cstdint>
 #include <string>
+#include <cassert>
 #include <stdexcept>
 
 namespace algs4 {
 namespace Quick {
+
+template <typename T>
+void sort(std::vector<T> &a);
+
+template <typename T>
+void sort(std::vector<T> &a, const std::size_t lo, const std::size_t hi);
+
+template <typename T>
+std::size_t partition(std::vector<T> &a, const std::size_t lo, const std::size_t hi);
+
+template <typename T>
+T select(std::vector<T> &a, const std::size_t k);
+
+template <typename T>
+void exch(std::vector<T> &a, const std::size_t i, const std::size_t j);
 
 template <typename T>
 bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t hi);
@@ -19,10 +35,9 @@ template <typename T>
 bool isSorted(const std::vector<T> &a);
 
 template <typename T>
-std::size_t partition(std::vector<T> &a, const std::size_t lo, const std::size_t hi);
+void show(const std::vector<T> &a);
 
-template <typename T>
-void exch(std::vector<T> &a, const std::size_t i, const std::size_t j);
+//////////////////////
 
 template <typename T>
 void sort(std::vector<T> &a) {
@@ -35,7 +50,11 @@ template <typename T>
 void sort(std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
     if (hi <= lo) return;
     const std::size_t j = partition(a, lo, hi);
-    sort(a, lo, j - 1);
+
+    if (int(j - 1) >= 0) { // should i use ssize_t instead?
+        sort(a, lo, j - 1);
+    }
+
     sort(a, j + 1, hi);
     assert(isSorted(a, lo, hi));
 }
@@ -44,15 +63,14 @@ template <typename T>
 std::size_t partition(std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
     std::size_t i = lo;
     std::size_t j = hi + 1;
-    auto v = a[lo];
 
     while (true) {
 
-        while (a[++i] < v) {
+        while (a[++i] < a[lo]) {
             if (i == hi) break;
         }
 
-        while (v < a[--j]) {
+        while (a[lo] < a[--j]) {
             if (j == lo) break;
         }
 
@@ -66,10 +84,12 @@ std::size_t partition(std::vector<T> &a, const std::size_t lo, const std::size_t
 }
 
 template <typename T>
-auto select(std::vector<T> &a, const std::size_t k) {
+T select(std::vector<T> &a, const std::size_t k) {
     if (k < 0 || k >= a.size()) {
-        throw std::invalid_argument("index is not between 0 and " + std::to_string(a.size()) +
-                                    ": " + std::to_string(k));
+        throw std::invalid_argument(std::string("index is not between 0 and ")
+                                        .append(std::to_string(a.size()))
+                                        .append(": ")
+                                        .append(std::to_string(k)));
     }
 
     StdRandom::shuffle(a);
@@ -91,15 +111,15 @@ void exch(std::vector<T> &a, const std::size_t i, const std::size_t j) {
 }
 
 template <typename T>
-bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
-    for (std::size_t i = lo; i <= hi; i++)
-        if (a[i] < a[i - 1]) return false;
-    return true;
+bool isSorted(const std::vector<T> &a) {
+    return isSorted(a, 0, a.size() - 1);
 }
 
 template <typename T>
-bool isSorted(const std::vector<T> &a) {
-    return isSorted(a, 0, a.size() - 1);
+bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
+    for (std::size_t i = lo + 1; i <= hi; i++)
+        if (a[i] < a[i - 1]) return false;
+    return true;
 }
 
 template <typename T>
