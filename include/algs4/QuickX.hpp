@@ -54,8 +54,6 @@ void sort(std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
     std::size_t j = partition(a, lo, hi);
     sort(a, lo, j - 1);
     sort(a, j + 1, hi);
-
-    show(a);
 }
 
 template <typename T>
@@ -112,14 +110,14 @@ void exch(std::vector<T> &a, const std::size_t i, const std::size_t j) {
 
 template <typename T>
 bool isSorted(const std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
-    for (std::size_t i = lo; i <= hi; i++)
+    for (std::size_t i = lo + 1; i < hi; i++)
         if (a[i] < a[i - 1]) return false;
     return true;
 }
 
 template <typename T>
 bool isSorted(const std::vector<T> &a) {
-    for (std::size_t i = 0; i <= a.size() - std::size_t{1}; i++)
+    for (std::size_t i = 1; i < a.size(); i++)
         if (a[i] < a[i - 1]) return false;
     return true;
 }
