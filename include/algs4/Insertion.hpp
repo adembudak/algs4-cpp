@@ -11,6 +11,21 @@ namespace algs4 {
 namespace Insertion {
 
 template <typename T>
+void sort(std::vector<T> &a);
+
+template <typename T>
+void sort(std::vector<T> &a, const std::size_t lo, const std::size_t hi);
+
+template <typename T, class Compare>
+void sort(std::vector<T> &a, Compare comp);
+
+template <typename T, class Compare>
+void sort(std::vector<T> &a, const std::size_t lo, const std::size_t hi, Compare comp);
+
+template <typename T>
+std::vector<int> indexSort(const std::vector<T> &a);
+
+template <typename T>
 void exch(std::vector<T> &a, const std::size_t i, const std::size_t j);
 
 template <typename T>
@@ -18,6 +33,17 @@ bool isSorted(std::vector<T> &a);
 
 template <typename T>
 bool isSorted(std::vector<T> &a, const std::size_t lo, const std::size_t hi);
+
+template <typename T, typename Comp>
+bool isSorted(std::vector<T> &a, Comp comparator);
+
+template <typename T, typename Comp>
+bool isSorted(std::vector<T> &a, const std::size_t lo, const std::size_t hi, Comp comparator);
+
+template <typename T>
+void show(const std::vector<T> &a);
+
+/////////
 
 template <typename T>
 void sort(std::vector<T> &a) {
@@ -104,7 +130,7 @@ bool isSorted(std::vector<T> &a, Comp comparator) {
 template <typename T, typename Comp>
 bool isSorted(std::vector<T> &a, const std::size_t lo, const std::size_t hi, Comp comparator) {
     for (std::size_t i = lo + 1; i < hi; i++)
-        if (comparator(a[i] < a[i - 1])) return false;
+        if (comparator(a[i], a[i - 1])) return false;
     return true;
 }
 
@@ -114,7 +140,6 @@ void show(const std::vector<T> &a) {
         StdOut::println(a[i]);
     }
 }
-
 }
 }
 
