@@ -2,10 +2,18 @@
 #define STDRANDOM_H
 
 #include <vector>
+#include <stdexcept>
 
 namespace algs4 {
 
 namespace StdRandom {
+
+template <typename T>
+void validateNotNull(const std::vector<T> &x) {
+    if (x.empty()) {
+        throw std::domain_error("argument must not be empty");
+    }
+}
 
 void setSeed(const long s);
 long getSeed();
@@ -38,25 +46,34 @@ int discrete(const std::vector<int> &frequencies);
 
 double exp(const double lambda);
 
-void shuffle(std::vector<double> &a);
-void shuffle(std::vector<double> &a, const int lo, const int hi);
+template <typename T>
+void shuffle(std::vector<T> &a) {
+    validateNotNull(a);
 
-void shuffle(std::vector<int> &a);
-void shuffle(std::vector<int> &a, const int lo, const int hi);
+    int n = a.size();
+    for (int i = 0; i < n; i++) {
+        int r = i + uniform(n - i);
+        auto temp = a[i];
+        a[i] = a[r];
+        a[r] = temp;
+    }
+}
 
 template <typename T>
-void shuffle(std::vector<T> &a);
-template <typename T>
-void shuffle(std::vector<T> &a, const int lo, const int hi);
+void shuffle(std::vector<T> &a, const int lo, const int hi) {
+    validateNotNull(a);
+    validateSubarrayIndices(lo, hi, a.size());
 
-void shuffle(std::vector<char> &a);
+    for (int i = lo; i < hi; i++) {
+        int r = i + uniform(hi - i);
+        auto temp = a[i];
+        a[i] = a[r];
+        a[r] = temp;
+    }
+}
 
 std::vector<int> permuation(const int n);
 std::vector<int> permuation(const int n, const int k);
-
-template <typename T>
-void validateNotNull(const std::vector<T> &x);
-
 void validateSubarrayIndices(int lo, int hi, int length);
 
 }

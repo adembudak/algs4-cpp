@@ -208,89 +208,6 @@ double exp(const double lambda) {
     return -std::log(1 - uniform()) / lambda;
 }
 
-void shuffle(std::vector<double> &a) {
-    validateNotNull(a);
-    int n = a.size();
-    for (int i = 0; i < n; i++) {
-        int r = i + uniform(n - i);
-        double temp = a[i];
-        a[i] = a[r];
-        a[r] = temp;
-    }
-}
-
-void shuffle(std::vector<double> &a, const int lo, const int hi) {
-    validateNotNull(a);
-    validateSubarrayIndices(lo, hi, a.size());
-
-    for (int i = lo; i < hi; i++) {
-        int r = i + uniform(hi - i);
-        double temp = a[i];
-        a[i] = a[r];
-        a[r] = temp;
-    }
-}
-
-void shuffle(std::vector<int> &a) {
-    validateNotNull(a);
-    int n = a.size();
-    for (int i = 0; i < n; i++) {
-        int r = i + uniform(n - i);
-        int temp = a[i];
-        a[i] = a[r];
-        a[r] = temp;
-    }
-}
-
-void shuffle(std::vector<int> &a, const int lo, const int hi) {
-    validateNotNull(a);
-    validateSubarrayIndices(lo, hi, a.size());
-
-    for (int i = lo; i < hi; i++) {
-        int r = i + uniform(hi - i);
-        int temp = a[i];
-        a[i] = a[r];
-        a[r] = temp;
-    }
-}
-
-template <typename T>
-void shuffle(std::vector<T> &a) {
-    validateNotNull(a);
-
-    int n = a.length;
-    for (int i = 0; i < n; i++) {
-        int r = i + uniform(n - i);
-        auto temp = a[i];
-        a[i] = a[r];
-        a[r] = temp;
-    }
-}
-
-template <typename T>
-void shuffle(std::vector<T> &a, const int lo, const int hi) {
-    validateNotNull(a);
-    validateSubarrayIndices(lo, hi, a.length);
-
-    for (int i = lo; i < hi; i++) {
-        int r = i + uniform(hi - i);
-        auto temp = a[i];
-        a[i] = a[r];
-        a[r] = temp;
-    }
-}
-
-void shuffle(std::vector<char> &a) {
-    validateNotNull(a);
-    int n = a.size();
-    for (int i = 0; i < n; i++) {
-        int r = i + uniform(n - i);
-        char temp = a[i];
-        a[i] = a[r];
-        a[r] = temp;
-    }
-}
-
 std::vector<int> permutation(const int n) {
     if (n < 0) throw std::domain_error("n must be non-negative: " + std::to_string(n));
 
@@ -316,13 +233,6 @@ std::vector<int> permutation(const int n, const int k) {
         if (r < k) perm[r] = i;
     }
     return perm;
-}
-
-template <typename T>
-void validateNotNull(const std::vector<T> &x) {
-    if (x.empty()) {
-        throw std::domain_error("argument must not be null");
-    }
 }
 
 void validateSubarrayIndices(int lo, int hi, int length) {
