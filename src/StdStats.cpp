@@ -3,6 +3,7 @@
 #include <vector>
 #include <limits>
 #include <cmath>
+#include <cstddef>
 
 namespace algs4 {
 
@@ -11,7 +12,7 @@ namespace StdStats {
 double max(const std::vector<double> &a) {
     double max = negative_double_INF;
 
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++) {
         if (std::isnan(a[i])) return double_NaN;
         if (a[i] > max) max = a[i];
     }
@@ -19,39 +20,39 @@ double max(const std::vector<double> &a) {
 }
 
 // find maximum value in subarray [lo, hi) of a
-double max(const std::vector<double> &a, const int lo, const int hi) {
-    double max = negative_double_INF;
+double max(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
+    double max_ = negative_double_INF;
 
-    for (int i = lo; i < hi; i++) {
+    for (auto i = lo; i < hi; i++) {
         if (std::isnan(a[i])) return double_NaN;
-        if (a[i] > max) max = a[i];
+        if (a[i] > max_) max_ = a[i];
     }
-    return max;
+    return max_;
 }
 
 int max(const std::vector<int> &a) {
-    int max = int_MIN;
+    int max_ = int_MIN;
 
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] > max) max = a[i];
+    for (std::size_t i = 0; i < a.size(); i++) {
+        if (a[i] > max_) max_ = a[i];
     }
-    return max;
+    return max_;
 }
 
 double min(const std::vector<double> &a) {
-    double min = double_INF;
+    double min_ = double_INF;
 
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++) {
         if (std::isnan(a[i])) return double_NaN;
-        if (a[i] < min) min = a[i];
+        if (a[i] < min_) min_ = a[i];
     }
-    return min;
+    return min_;
 }
 
-double min(const std::vector<double> &a, const int lo, const int hi) {
+double min(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
     double min = double_INF;
 
-    for (int i = lo; i < hi; i++) {
+    for (auto i = lo; i < hi; i++) {
         if (std::isnan(a[i])) return double_NaN;
         if (a[i] < min) min = a[i];
     }
@@ -61,7 +62,7 @@ double min(const std::vector<double> &a, const int lo, const int hi) {
 int min(const std::vector<int> &a) {
     int min = int_MAX;
 
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++) {
         if (a[i] < min) min = a[i];
     }
     return min;
@@ -69,7 +70,7 @@ int min(const std::vector<int> &a) {
 
 double sum(const std::vector<double> &a) {
     double sum = 0.0;
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++) {
         sum += a[i];
     }
     return sum;
@@ -77,15 +78,15 @@ double sum(const std::vector<double> &a) {
 
 int sum(const std::vector<int> &a) {
     int sum = 0.0;
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++) {
         sum += a[i];
     }
     return sum;
 }
 
-double sum(const std::vector<double> &a, const int lo, const int hi) {
+double sum(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
     double sum_ = 0.0;
-    for (int i = lo; i < hi; i++) {
+    for (auto i = lo; i < hi; i++) {
         sum_ += a[i];
     }
     return sum_;
@@ -95,23 +96,22 @@ double mean(const std::vector<double> &a) {
 
     if (a.empty()) return double_NaN;
     const double sum_ = sum(a);
-    return sum_ / a.size();
+    return sum_ / double(a.size());
 }
 
-double mean(const std::vector<double> &a, const int lo, const int hi) {
-
-    const int length = hi - lo;
+double mean(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
+    const auto length = hi - lo;
     if (length == 0) return double_NaN;
 
     double sum_ = sum(a, lo, hi);
-    return sum_ / length;
+    return sum_ / double(length);
 }
 
 double mean(const std::vector<int> &a) {
 
     if (a.empty()) return double_NaN;
     const int sum_ = sum(a);
-    return sum_ / a.size();
+    return double(sum_) / double(a.size());
 }
 
 double var(const std::vector<double> &a) {
@@ -121,23 +121,23 @@ double var(const std::vector<double> &a) {
     const double avg = mean(a);
     double sum = 0.0;
 
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++)
         sum += (a[i] - avg) * (a[i] - avg);
-    }
-    return sum / (a.size() - 1);
+
+    return sum / double(a.size() - 1);
 }
 
-double var(const std::vector<double> &a, const int lo, const int hi) {
-    const int length = hi - lo;
+double var(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
+    const auto length = hi - lo;
     if (length == 0) return double_NaN;
 
     double avg = mean(a, lo, hi);
     double sum = 0.0;
 
-    for (int i = lo; i < hi; i++) {
+    for (auto i = lo; i < hi; i++)
         sum += (a[i] - avg) * (a[i] - avg);
-    }
-    return sum / (length - 1);
+
+    return sum / double(length - 1);
 }
 
 double var(const std::vector<int> &a) {
@@ -147,10 +147,10 @@ double var(const std::vector<int> &a) {
     const double avg = mean(a);
     double sum = 0.0;
 
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++)
         sum += (a[i] - avg) * (a[i] - avg);
-    }
-    return sum / (a.size() - 1);
+
+    return sum / double(a.size() - 1);
 }
 
 double varp(const std::vector<double> &a) {
@@ -160,24 +160,24 @@ double varp(const std::vector<double> &a) {
     const double avg = mean(a);
     double sum = 0.0;
 
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++)
         sum += (a[i] - avg) * (a[i] - avg);
-    }
-    return sum / a.size();
+
+    return sum / double(a.size());
 }
 
-double varp(const std::vector<double> &a, const int lo, const int hi) {
+double varp(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
 
-    const int length = hi - lo;
+    const auto length = hi - lo;
     if (length == 0) return double_NaN;
 
     const double avg = mean(a, lo, hi);
     double sum = 0.0;
 
-    for (int i = lo; i < hi; i++) {
+    for (auto i = lo; i < hi; i++)
         sum += (a[i] - avg) * (a[i] - avg);
-    }
-    return sum / a.size();
+
+    return sum / double(a.size());
 }
 
 double stddev(const std::vector<double> &a) {
@@ -188,7 +188,7 @@ double stddev(const std::vector<int> &a) {
     return std::sqrt(var(a));
 }
 
-double stddev(const std::vector<double> &a, const int lo, const int hi) {
+double stddev(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
     return std::sqrt(var(a, lo, hi));
 }
 
@@ -196,7 +196,7 @@ double stddevp(const std::vector<double> &a) {
     return std::sqrt(varp(a));
 }
 
-double stddevp(const std::vector<double> &a, const int lo, const int hi) {
+double stddevp(const std::vector<double> &a, const std::size_t lo, const std::size_t hi) {
     return std::sqrt(varp(a, lo, hi));
 }
 

@@ -2,6 +2,7 @@
 #define STDRANDOM_H
 
 #include <vector>
+#include <cstddef>
 #include <stdexcept>
 
 namespace algs4 {
@@ -15,11 +16,10 @@ void validateNotNull(const std::vector<T> &x) {
     }
 }
 
-void setSeed(const long s);
-long getSeed();
+void setSeed(const unsigned long s);
+unsigned long getSeed();
 
 double uniform();
-int uniform(const int n);
 long uniform(const long n);
 
 [[deprecated]] double random();
@@ -50,7 +50,7 @@ template <typename T>
 void shuffle(std::vector<T> &a) {
     validateNotNull(a);
 
-    int n = a.size();
+    auto n = a.size();
     for (int i = 0; i < n; i++) {
         int r = i + uniform(n - i);
         auto temp = a[i];
@@ -60,12 +60,12 @@ void shuffle(std::vector<T> &a) {
 }
 
 template <typename T>
-void shuffle(std::vector<T> &a, const int lo, const int hi) {
+void shuffle(std::vector<T> &a, const std::size_t lo, const std::size_t hi) {
     validateNotNull(a);
     validateSubarrayIndices(lo, hi, a.size());
 
-    for (int i = lo; i < hi; i++) {
-        int r = i + uniform(hi - i);
+    for (std::size_t i = lo; i < hi; i++) {
+        int r = i + uniform(int(hi - i));
         auto temp = a[i];
         a[i] = a[r];
         a[r] = temp;

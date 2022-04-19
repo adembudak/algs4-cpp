@@ -7,11 +7,8 @@
 #include <limits>
 #include <stdexcept>
 
-namespace algs4 {
-
-namespace StdRandom {
-
-constexpr auto PI = 3.141592653589793238462643383279502884L;
+namespace {
+constexpr double PI = 3.1415926;
 
 std::random_device rd;
 std::mt19937 engine{rd()};
@@ -30,26 +27,25 @@ double_distrib_t double_distrib;
 constexpr int int_MAX = std::numeric_limits<int>::max();
 constexpr int int_MIN = std::numeric_limits<int>::min();
 
-long seed;
+unsigned long seed;
+}
+
+namespace algs4 {
+namespace StdRandom {
 
 //////////////////////////////
 
-void setSeed(const long s) {
+void setSeed(const unsigned long s) {
     seed = s;
     engine.seed(s);
 }
 
-long getSeed() {
+unsigned long getSeed() {
     return seed;
 }
 
 double uniform() {
     return double_distrib(engine);
-}
-
-int uniform(const int n) {
-    if (n <= 0) std::domain_error("argument must be positive");
-    return int_distrib(engine, param_type_i{0, n - 1});
 }
 
 long uniform(const long n) {
@@ -153,7 +149,7 @@ int discrete(const std::vector<double> &probabilities) {
 
     const double EPSILON = 1.0E-14;
     double sum = 0.0;
-    for (int i = 0; i < probabilities.size(); i++) {
+    for (std::size_t i = 0; i < probabilities.size(); i++) {
         if (!(probabilities[i] >= 0.0))
             throw std::domain_error("array entry " + std::to_string(i) +
                                     " must be non-negative: " + std::to_string(probabilities[i]));
@@ -167,7 +163,7 @@ int discrete(const std::vector<double> &probabilities) {
     while (true) {
         double r = uniform();
         sum = 0.0;
-        for (int i = 0; i < probabilities.size(); i++) {
+        for (std::size_t i = 0; i < probabilities.size(); i++) {
             sum = sum + probabilities[i];
             if (sum > r) return i;
         }
@@ -178,7 +174,7 @@ int discrete(const std::vector<int> &frequencies) {
     if (frequencies.empty()) throw std::domain_error("argument array must not be null");
 
     long sum = 0;
-    for (int i = 0; i < frequencies.size(); i++) {
+    for (std::size_t i = 0; i < frequencies.size(); i++) {
         if (frequencies[i] < 0)
             throw std::domain_error("array entry " + std::to_string(i) +
                                     " must be non-negative: " + std::to_string(frequencies[i]));
@@ -191,7 +187,7 @@ int discrete(const std::vector<int> &frequencies) {
     // pick index i with probabilitity proportional to frequency
     double r = uniform((int)sum);
     sum = 0;
-    for (int i = 0; i < frequencies.size(); i++) {
+    for (std::size_t i = 0; i < frequencies.size(); i++) {
         sum += frequencies[i];
         if (sum > r) return i;
     }
