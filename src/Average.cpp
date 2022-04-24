@@ -1,7 +1,7 @@
 #include "algs4/StdIn.h"
 #include "algs4/StdOut.h"
 
-int main(int argc, const char *argv[]) {
+int main() {
     using namespace algs4;
 
     int count = 0;

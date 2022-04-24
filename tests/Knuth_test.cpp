@@ -2,14 +2,14 @@
 #include "algs4/StdIn.h"
 #include "algs4/StdOut.h"
 
-int main(int argc, const char *argv[]) {
+int main() {
     using namespace algs4;
 
     auto a = StdIn::readAllStrings();
 
     Knuth::shuffle(a);
 
-    for (int i = 0; i < a.size(); i++) {
+    for (std::size_t i = 0; i < a.size(); i++) {
         StdOut::println(a[i]);
     }
 

@@ -8,7 +8,7 @@
 //  Binarysearch_test tinyW.txt < tinyT.txt
 //  Binarysearch_test largeW.txt < largeT.txt
 
-int main(int argc, const char *argv[]) {
+int main(int /*argc*/, const char *argv[]) {
     using namespace algs4;
     // read the integers from a file
     In in(argv[1]);

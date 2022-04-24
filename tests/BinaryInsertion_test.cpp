@@ -4,7 +4,7 @@
 // BinaryInsertion_test < tiny.txt
 // BinaryInsertion_test < words3.txt
 
-int main(int argc, const char *argv[]) {
+int main() {
     using namespace algs4;
 
     auto a = StdIn::readAllStrings();

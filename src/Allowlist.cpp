@@ -6,7 +6,7 @@
 // Allowlist tinyAllowlist.txt < tinyText.txt
 // Allowlist largeAllowlist.txt < largeText.txt | more
 
-int main(int argc, const char *argv[]) {
+int main(int /*argc*/, const char *argv[]) {
     using namespace algs4;
 
     In in(argv[1]);

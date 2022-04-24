@@ -4,7 +4,7 @@
 
 // run by: StdStats_test < algs4-data/tinyDouble1D.txt
 
-int main(int argc, const char *argv[]) {
+int main() {
     using namespace algs4;
 
     auto a = StdArrayIO::readDouble1D();
