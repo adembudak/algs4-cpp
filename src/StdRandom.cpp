@@ -6,6 +6,7 @@
 #include <cassert>
 #include <limits>
 #include <stdexcept>
+#include <string>
 
 namespace {
 constexpr double PI = 3.1415926;

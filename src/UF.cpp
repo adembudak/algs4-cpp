@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstdint>
 #include <stdexcept>
+#include <string>
 
 namespace algs4 {
 

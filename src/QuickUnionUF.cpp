@@ -1,5 +1,6 @@
 #include <algs4/QuickUnionUF.h>
 #include <stdexcept>
+#include <string>
 
 namespace algs4 {
 

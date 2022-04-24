@@ -1,6 +1,7 @@
 #include <algs4/QuickFindUF.h>
 #include <stdexcept>
 #include <cstdint>
+#include <string>
 
 namespace algs4 {
 
