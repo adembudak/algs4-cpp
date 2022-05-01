@@ -46,8 +46,6 @@ double stddev(const std::vector<double> &a, const std::size_t lo, const std::siz
 double stddevp(const std::vector<double> &a);
 double stddevp(const std::vector<double> &a, const std::size_t lo, const std::size_t hi);
 
-//  TODO: implement StdDraw and plotting functions
-
 }
 }
 

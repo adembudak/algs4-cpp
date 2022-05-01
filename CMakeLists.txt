@@ -34,6 +34,7 @@ if(NOT EXISTS ${ALGS4_DATA_DIR}/tinyAllowlist.txt)
   download ("https://algs4.cs.princeton.edu/11model/largeText.txt" ${ALGS4_DATA_DIR}/largeText.txt)
 endif()
 
+find_package (ftxui QUIET REQUIRED CONFIG)
 find_package (httplib QUIET REQUIRED CONFIG)
 
 add_algs4_library (StdOut SOURCES src/StdOut.cpp)
@@ -43,6 +44,7 @@ add_algs4_library (Out SOURCES src/Out.cpp)
 add_algs4_library (StdArrayIO SOURCES src/StdArrayIO.cpp)
 add_algs4_library (StdStats SOURCES src/StdStats.cpp)
 add_algs4_library (StdRandom SOURCES src/StdRandom.cpp)
+add_algs4_library (StdDraw SOURCES src/StdDraw.cpp DEPENDS ftxui::screen ftxui::dom ftxui::component)
 
 add_algs4_library (BinarySearch SOURCES src/BinarySearch.cpp)
 add_algs4_library (Knuth SOURCES src/Knuth.cpp)
@@ -86,6 +88,7 @@ add_algs4_executable (Out_test SOURCE tests/Out_test.cpp LINK Out)
 add_algs4_executable (StdArrayIO_test SOURCE tests/StdArrayIO_test.cpp LINK StdArrayIO StdIn StdOut)
 add_algs4_executable (StdStats_test SOURCE tests/StdStats_test.cpp LINK StdStats StdOut StdArrayIO StdIn)
 add_algs4_executable (StdRandom_test SOURCE tests/StdRandom_test.cpp LINK StdRandom StdOut)
+add_algs4_executable (StdDraw_test SOURCE tests/StdDraw_test.cpp LINK StdDraw ftxui::screen ftxui::dom ftxui::component)
 
 add_algs4_executable (Binarysearch_test SOURCE tests/Binarysearch_test.cpp LINK StdOut StdIn In BinarySearch)
 add_algs4_executable (RandomSeq SOURCE src/RandomSeq.cpp LINK StdRandom StdOut)
@@ -130,3 +133,4 @@ add_algs4_executable (Merge_test SOURCE tests/Merge_test.cpp LINK Merge StdIn St
 add_algs4_executable (Quick_test SOURCE tests/Quick_test.cpp LINK Quick StdRandom StdIn StdOut)
 add_algs4_executable (QuickX_test SOURCE tests/QuickX_test.cpp LINK QuickX StdRandom StdIn StdOut)
 add_algs4_executable (Quick3way_test SOURCE tests/Quick3way_test.cpp LINK Quick3way StdRandom StdIn StdOut)
+
