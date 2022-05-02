@@ -60,6 +60,7 @@ add_algs4_library (Interval2D SOURCES src/Interval2D.cpp DEPENDS Point2D Interva
 add_algs4_library (Accumulator SOURCES src/Accumulator.cpp)
 add_algs4_library (ResizingArrayStack INTERFACE)
 add_algs4_library (ResizingArrayBag INTERFACE)
+add_algs4_library (Bag INTERFACE)
 add_algs4_library (Stopwatch SOURCES src/Stopwatch.cpp)
 add_algs4_library (LinearRegression SOURCES src/LinearRegression.cpp)
 add_algs4_library (ThreeSum SOURCES src/ThreeSum.cpp)
@@ -106,8 +107,8 @@ add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Inte
 add_algs4_executable (Accumulator_test SOURCE tests/Accumulator_test.cpp LINK Accumulator StdIn StdOut)
 add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_test.cpp LINK
                       ResizingArrayStack StdIn StdOut)
-add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK ResizingArrayBag
-                      StdOut)
+add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK ResizingArrayBag StdOut)
+add_algs4_executable (Bag_test SOURCE tests/Bag_test.cpp LINK StdIn StdOut)
 add_algs4_executable (Stopwatch_test SOURCE tests/Stopwatch_test.cpp LINK Stopwatch StdOut)
 add_algs4_executable (ThreeSum_test SOURCE tests/ThreeSum_test.cpp LINK ThreeSum Stopwatch StdOut In)
 add_algs4_executable (ThreeSumFast_test SOURCE tests/ThreeSumFast_test.cpp LINK ThreeSumFast BinarySearch
