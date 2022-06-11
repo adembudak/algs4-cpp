@@ -5,7 +5,7 @@
 
 // $ Threesum_test 1Kints.txt
 
-int main(int argc, const char *argv[]) {
+int main(int /*argc*/, const char *argv[]) {
     using namespace algs4;
 
     In in(argv[1]);

@@ -2,7 +2,7 @@
 #include "algs4/StdOut.h"
 #include "algs4/In.h"
 
-int main(int argc, const char *argv[]) {
+int main(int /*argc*/, const char *argv[]) {
     using namespace algs4;
     In in(argv[1]);
 
