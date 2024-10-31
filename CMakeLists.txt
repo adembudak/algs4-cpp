@@ -8,6 +8,7 @@ set (ALGS4_TEST_DIR "${ALGS4_SOURCE_DIR}/tests")
 set (ALGS4_DATA_DIR "${ALGS4_TEST_DIR}/algs4-data")
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${ALGS4_SOURCE_DIR}/cmake")
 
+include (get_deps)
 include (add_algs4_executable)
 include (add_algs4_library)
 include (download_algs4_data)
@@ -33,9 +34,6 @@ if(NOT EXISTS ${ALGS4_DATA_DIR}/tinyAllowlist.txt)
   download ("https://algs4.cs.princeton.edu/11model/largeAllowlist.txt" ${ALGS4_DATA_DIR}/largeAllowlist.txt)
   download ("https://algs4.cs.princeton.edu/11model/largeText.txt" ${ALGS4_DATA_DIR}/largeText.txt)
 endif()
-
-find_package (ftxui QUIET REQUIRED CONFIG)
-find_package (httplib QUIET REQUIRED)
 
 add_algs4_library (StdOut PUBLIC SOURCES src/StdOut.cpp)
 add_algs4_library (StdIn PUBLIC SOURCES src/StdIn.cpp)
@@ -89,7 +87,8 @@ add_algs4_executable (Out_test SOURCE tests/Out_test.cpp LINK Out)
 add_algs4_executable (StdArrayIO_test SOURCE tests/StdArrayIO_test.cpp LINK StdArrayIO StdIn StdOut)
 add_algs4_executable (StdStats_test SOURCE tests/StdStats_test.cpp LINK StdStats StdOut StdArrayIO StdIn)
 add_algs4_executable (StdRandom_test SOURCE tests/StdRandom_test.cpp LINK StdRandom StdOut)
-add_algs4_executable (StdDraw_test SOURCE tests/StdDraw_test.cpp LINK StdDraw ftxui::screen ftxui::dom ftxui::component)
+add_algs4_executable (StdDraw_test SOURCE tests/StdDraw_test.cpp LINK StdDraw ftxui::screen ftxui::dom
+                      ftxui::component)
 
 add_algs4_executable (Binarysearch_test SOURCE tests/Binarysearch_test.cpp LINK StdOut StdIn In BinarySearch)
 add_algs4_executable (RandomSeq SOURCE src/RandomSeq.cpp LINK StdRandom StdOut)
@@ -107,7 +106,8 @@ add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Inte
 add_algs4_executable (Accumulator_test SOURCE tests/Accumulator_test.cpp LINK Accumulator StdIn StdOut)
 add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_test.cpp LINK
                       ResizingArrayStack StdIn StdOut)
-add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK ResizingArrayBag StdOut)
+add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK ResizingArrayBag
+                      StdOut)
 add_algs4_executable (Bag_test SOURCE tests/Bag_test.cpp LINK StdIn StdOut)
 add_algs4_executable (Stopwatch_test SOURCE tests/Stopwatch_test.cpp LINK Stopwatch StdOut)
 add_algs4_executable (ThreeSum_test SOURCE tests/ThreeSum_test.cpp LINK ThreeSum Stopwatch StdOut In)
@@ -126,7 +126,8 @@ add_algs4_executable (UF_test SOURCE tests/UF_test.cpp LINK UF StdIn StdOut)
 
 add_algs4_executable (Insertion_test SOURCE tests/Insertion_test.cpp LINK Insertion StdIn StdOut)
 add_algs4_executable (InsertionX_test SOURCE tests/InsertionX_test.cpp LINK InsertionX StdIn StdOut)
-add_algs4_executable (BinaryInsertion_test SOURCE tests/BinaryInsertion_test.cpp LINK BinaryInsertion StdIn StdOut)
+add_algs4_executable (BinaryInsertion_test SOURCE tests/BinaryInsertion_test.cpp LINK BinaryInsertion StdIn
+                      StdOut)
 add_algs4_executable (Selection_test SOURCE tests/Selection_test.cpp LINK Selection StdIn StdOut)
 add_algs4_executable (Shell_test SOURCE tests/Shell_test.cpp LINK Shell StdIn StdOut)
 
@@ -134,4 +135,3 @@ add_algs4_executable (Merge_test SOURCE tests/Merge_test.cpp LINK Merge StdIn St
 add_algs4_executable (Quick_test SOURCE tests/Quick_test.cpp LINK Quick StdRandom StdIn StdOut)
 add_algs4_executable (QuickX_test SOURCE tests/QuickX_test.cpp LINK QuickX StdRandom StdIn StdOut)
 add_algs4_executable (Quick3way_test SOURCE tests/Quick3way_test.cpp LINK Quick3way StdRandom StdIn StdOut)
-
