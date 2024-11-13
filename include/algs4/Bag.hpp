@@ -1,8 +1,9 @@
 #ifndef BAG_HPP
 #define BAG_HPP
 
-#include <cstdint>
+#include <cstddef>
 #include <iterator>
+#include <type_traits>
 
 namespace algs4 {
 
@@ -12,20 +13,20 @@ struct Node {
     Node *next = nullptr;
 };
 
-template <typename T, class UnqualifedT = std::remove_cv<T>>
-class ForwardIterator
-    : public std::iterator<std::forward_iterator_tag, UnqualifedT, std::ptrdiff_t, T *, T &>
-
-{
+template <typename T>
+class ForwardIterator {
   public:
-    using value_type = T;
-    using distance_type = std::ptrdiff_t;
+    using value_type = std::remove_cv_t<T>;
+    using difference_type = std::ptrdiff_t;
+    using pointer = T *;
+    using reference = T &;
+    using iterator_category = std::forward_iterator_tag;
 
   private:
     Node<T> *iter = nullptr;
 
   public:
-    explicit ForwardIterator(Node<T> *iter) : iter(iter) {
+    explicit ForwardIterator(Node<T> *iter) : iter{iter} {
     }
 
     ForwardIterator &operator++() {
@@ -33,19 +34,19 @@ class ForwardIterator
         return *this;
     }
 
-    const ForwardIterator operator++(int) {
-        const auto temp = *this;
+    ForwardIterator operator++(int) {
+        ForwardIterator temp = *this;
         iter = iter->next;
         return temp;
     }
 
-    template <typename Other>
-    bool operator==(const ForwardIterator<Other> &other) {
+    template <typename U>
+    bool operator==(const ForwardIterator<U> &other) const {
         return iter == other.iter;
     }
 
-    template <typename Other>
-    bool operator!=(const ForwardIterator<Other> &other) {
+    template <typename U>
+    bool operator!=(const ForwardIterator<U> &other) const {
         return iter != other.iter;
     }
 
@@ -53,8 +54,16 @@ class ForwardIterator
         return iter->item;
     }
 
-    T &operator->() {
+    const T &operator*() const {
         return iter->item;
+    }
+
+    T *operator->() {
+        return &iter->item;
+    }
+
+    const T *operator->() const {
+        return &iter->item;
     }
 };
 
@@ -63,7 +72,6 @@ class Bag {
   public:
     using value_type = T;
     using const_value_type = const value_type;
-
     using iterator = ForwardIterator<value_type>;
     using const_iterator = ForwardIterator<const_value_type>;
 
@@ -72,15 +80,12 @@ class Bag {
     std::size_t n = 0;
 
   public:
-    Bag() = default;
-
     ~Bag() {
-        while (first->next) {
+        while (first) {
             auto oldfirst = first;
             first = first->next;
             delete oldfirst;
         }
-        delete first;
     }
 
     bool isEmpty() const {
@@ -92,17 +97,10 @@ class Bag {
     }
 
     void add(const value_type &item) {
-        if (!first) {
-            first = new Node<T>;
-            first->item = item;
-        } else {
-            auto oldfirst = first;
-
-            first = new Node<T>;
-            first->item = item;
-            first->next = oldfirst;
-        }
-        n++;
+        Node<T> *new_node = new Node<T>{item};
+        new_node->next = first;
+        first = new_node;
+        ++n;
     }
 
     iterator begin() {
