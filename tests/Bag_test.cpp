@@ -2,6 +2,8 @@
 #include <algs4/StdIn.h>
 #include <algs4/StdOut.h>
 
+#include <string>
+
 int main(int argc, const char *argv[]) {
     using namespace algs4;
 

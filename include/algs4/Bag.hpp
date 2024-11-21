@@ -3,7 +3,7 @@
 
 #include <cstddef>
 #include <iterator>
-#include <type_traits>
+#include <memory>
 
 namespace algs4 {
 
@@ -11,12 +11,15 @@ template <typename T>
 struct Node {
     T item;
     Node *next = nullptr;
+
+    Node(T item, Node *next) : item{item}, next{next} {
+    }
 };
 
 template <typename T>
 class ForwardIterator {
   public:
-    using value_type = std::remove_cv_t<T>;
+    using value_type = T;
     using difference_type = std::ptrdiff_t;
     using pointer = T *;
     using reference = T &;
@@ -76,6 +79,9 @@ class Bag {
     using const_iterator = ForwardIterator<const_value_type>;
 
   private:
+    using allocator_t = std::allocator<Node<value_type>>;
+    allocator_t m_allocator;
+
     Node<value_type> *first = nullptr;
     std::size_t n = 0;
 
@@ -84,7 +90,8 @@ class Bag {
         while (first) {
             auto oldfirst = first;
             first = first->next;
-            delete oldfirst;
+            std::allocator_traits<allocator_t>::destroy(m_allocator, oldfirst);
+            std::allocator_traits<allocator_t>::deallocate(m_allocator, oldfirst, 1);
         }
     }
 
@@ -97,26 +104,18 @@ class Bag {
     }
 
     void add(const value_type &item) {
-        Node<T> *new_node = new Node<T>{item};
-        new_node->next = first;
+        Node<T> *new_node = std::allocator_traits<allocator_t>::allocate(m_allocator, 1);
+        std::allocator_traits<allocator_t>::construct(m_allocator, new_node, item, first);
         first = new_node;
         ++n;
     }
 
-    iterator begin() {
+    iterator begin() const {
         return iterator{first};
     }
 
-    const_iterator begin() const {
-        return const_iterator{first};
-    }
-
-    iterator end() {
+    iterator end() const {
         return iterator{nullptr};
-    }
-
-    const_iterator end() const {
-        return const_iterator{nullptr};
     }
 };
 
