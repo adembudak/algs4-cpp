@@ -78,6 +78,8 @@ add_algs4_library (Quick INTERFACE)
 add_algs4_library (QuickX INTERFACE)
 add_algs4_library (Quick3way INTERFACE)
 
+add_algs4_library (Graph PUBLIC SOURCES src/Graph.cpp DEPENDS In)
+
 ##############################################################
 
 add_algs4_executable (StdOut_test SOURCE tests/StdOut_test.cpp LINK StdOut)
@@ -135,3 +137,5 @@ add_algs4_executable (Merge_test SOURCE tests/Merge_test.cpp LINK Merge StdIn St
 add_algs4_executable (Quick_test SOURCE tests/Quick_test.cpp LINK Quick StdRandom StdIn StdOut)
 add_algs4_executable (QuickX_test SOURCE tests/QuickX_test.cpp LINK QuickX StdRandom StdIn StdOut)
 add_algs4_executable (Quick3way_test SOURCE tests/Quick3way_test.cpp LINK Quick3way StdRandom StdIn StdOut)
+
+add_algs4_executable (Graph_test SOURCE tests/Graph_test.cpp LINK Graph In StdOut)
