@@ -57,6 +57,7 @@ add_algs4_library (Interval1D PUBLIC SOURCES src/Interval1D.cpp)
 add_algs4_library (Interval2D PUBLIC SOURCES src/Interval2D.cpp DEPENDS Point2D Interval1D)
 add_algs4_library (Accumulator PUBLIC SOURCES src/Accumulator.cpp)
 add_algs4_library (ResizingArrayStack INTERFACE)
+add_algs4_library (Stack INTERFACE)
 add_algs4_library (ResizingArrayBag INTERFACE)
 add_algs4_library (Bag INTERFACE)
 add_algs4_library (Stopwatch PUBLIC SOURCES src/Stopwatch.cpp)
@@ -108,6 +109,7 @@ add_algs4_executable (Interval2D_test SOURCE tests/Interval2D_test.cpp LINK Inte
 add_algs4_executable (Accumulator_test SOURCE tests/Accumulator_test.cpp LINK Accumulator StdIn StdOut)
 add_algs4_executable (ResizingArrayStack_test SOURCE tests/ResizingArrayStack_test.cpp LINK
                       ResizingArrayStack StdIn StdOut)
+add_algs4_executable (Stack_test SOURCE tests/Stack_test.cpp LINK Stack StdIn StdOut)
 add_algs4_executable (ResizingArrayBag_test SOURCE tests/ResizingArrayBag_test.cpp LINK ResizingArrayBag
                       StdOut)
 add_algs4_executable (Bag_test SOURCE tests/Bag_test.cpp LINK StdIn StdOut)
