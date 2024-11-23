@@ -1,7 +1,7 @@
 #include <algs4/Graph.h>
 #include <algs4/In.h>
+#include <algs4/Stack.hpp>
 
-#include <stack>
 #include <sstream>
 
 namespace algs4 {
@@ -19,6 +19,22 @@ Graph::Graph(In &in) {
         int v = in.readInt();
         int w = in.readInt();
         addEdge(v, w);
+    }
+}
+
+Graph::Graph(const Graph &other) {
+    V_ = other.V();
+    E_ = other.E();
+    adj_.resize(V_);
+
+    for (int v = 0; v < other.V(); v++) {
+        Stack<int> reverse;
+        for (int w : other.adj_[v]) {
+            reverse.push(w);
+        }
+        for (int w : reverse) {
+            adj_[v].add(w);
+        }
     }
 }
 

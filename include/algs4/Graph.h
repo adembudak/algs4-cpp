@@ -15,6 +15,7 @@ class Graph {
   public:
     Graph(int V);
     Graph(In &in);
+    Graph(const Graph &other);
 
     int E() const;
     int V() const;
