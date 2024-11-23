@@ -2,73 +2,12 @@
 #define BAG_HPP
 
 #include <cstddef>
-#include <iterator>
 #include <memory>
 
+#include "detail/ForwardIterator.hpp"
+#include "detail/Node.hpp"
+
 namespace algs4 {
-
-template <typename T>
-struct Node {
-    T item;
-    Node *next = nullptr;
-
-    Node(T item, Node *next) : item{item}, next{next} {
-    }
-};
-
-template <typename T>
-class ForwardIterator {
-  public:
-    using value_type = T;
-    using difference_type = std::ptrdiff_t;
-    using pointer = T *;
-    using reference = T &;
-    using iterator_category = std::forward_iterator_tag;
-
-  private:
-    Node<T> *iter = nullptr;
-
-  public:
-    explicit ForwardIterator(Node<T> *iter) : iter{iter} {
-    }
-
-    ForwardIterator &operator++() {
-        iter = iter->next;
-        return *this;
-    }
-
-    ForwardIterator operator++(int) {
-        ForwardIterator temp = *this;
-        iter = iter->next;
-        return temp;
-    }
-
-    template <typename U>
-    bool operator==(const ForwardIterator<U> &other) const {
-        return iter == other.iter;
-    }
-
-    template <typename U>
-    bool operator!=(const ForwardIterator<U> &other) const {
-        return iter != other.iter;
-    }
-
-    T &operator*() {
-        return iter->item;
-    }
-
-    const T &operator*() const {
-        return iter->item;
-    }
-
-    T *operator->() {
-        return &iter->item;
-    }
-
-    const T *operator->() const {
-        return &iter->item;
-    }
-};
 
 template <typename T>
 class Bag {
