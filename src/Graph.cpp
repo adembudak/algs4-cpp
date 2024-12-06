@@ -38,6 +38,23 @@ Graph::Graph(const Graph &other) {
     }
 }
 
+Graph &Graph::operator=(const Graph &other) {
+    V_ = other.V();
+    E_ = other.E();
+    adj_.resize(V_);
+
+    for (int v = 0; v < other.V(); v++) {
+        Stack<int> reverse;
+        for (int w : other.adj_[v]) {
+            reverse.push(w);
+        }
+        for (int w : reverse) {
+            adj_[v].add(w);
+        }
+    }
+    return *this;
+}
+
 int Graph::E() const {
     return E_;
 }
@@ -70,8 +87,7 @@ Graph::operator std::string() const {
 
     for (int v = 0; v < V_; v++) {
         sout << v << ": ";
-        const auto t = adj_[v];
-        for (const auto w : t) {
+        for (const auto w : adj_[v]) {
             sout << w << " ";
         }
         sout << "\n";

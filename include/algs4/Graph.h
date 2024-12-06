@@ -3,6 +3,7 @@
 
 #include <algs4/Bag.hpp>
 #include <vector>
+#include <string>
 
 namespace algs4 {
 class In;
@@ -16,6 +17,7 @@ class Graph {
     Graph(int V);
     Graph(In &in);
     Graph(const Graph &other);
+    Graph& operator=(const Graph &other);
 
     int E() const;
     int V() const;
