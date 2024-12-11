@@ -96,4 +96,24 @@ Graph::operator std::string() const {
     return sout.str();
 }
 
+int maxDegree(const Graph &G) {
+    int max = 0;
+    for (int v = 0; v < G.V(); v++)
+        if (G.degree(v) > max)
+            max = G.degree(v);
+    return max;
+}
+
+int avgDegree(const Graph &G) {
+    return 2 * G.E() / G.V();
+}
+
+int numberOfSelfLoops(const Graph &G) {
+    int count = 0;
+    for (int v = 0; v < G.V(); v++)
+        for (int w : G.adj(v))
+            if (v == w) count++;
+    return count / 2;
+}
+
 }

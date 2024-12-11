@@ -32,6 +32,10 @@ class Graph {
     operator std::string() const;
 };
 
-}
+ int maxDegree(const Graph &G);
+ int avgDegree(const Graph &G);
+ int numberOfSelfLoops(const Graph &G);
+
+ }
 
 #endif
