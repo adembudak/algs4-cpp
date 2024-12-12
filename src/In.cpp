@@ -164,17 +164,17 @@ void In::close() {
     }
 }
 
-std::vector<int> In::readints(std::string filename) {
+std::vector<int> In::readints(const std::string &filename) {
     fin.open(filename);
     return readAllInts();
 }
 
-std::vector<double> In::readDoubles(std::string filename) {
+std::vector<double> In::readDoubles(const std::string &filename) {
     fin.open(filename);
     return readAllDoubles();
 }
 
-std::vector<std::string> In::readStrings(std::string filename) {
+std::vector<std::string> In::readStrings(const std::string &filename) {
     fin.open(filename);
     return readAllStrings();
 }

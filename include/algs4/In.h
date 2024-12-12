@@ -49,9 +49,9 @@ class In {
 
     void close();
 
-    [[deprecated]] std::vector<int> readints(std::string filename);
-    [[deprecated]] std::vector<double> readDoubles(std::string filename);
-    [[deprecated]] std::vector<std::string> readStrings(std::string filename);
+    [[deprecated]] std::vector<int> readints(const std::string &filename);
+    [[deprecated]] std::vector<double> readDoubles(const std::string &filename);
+    [[deprecated]] std::vector<std::string> readStrings(const std::string &filename);
     [[deprecated]] std::vector<int> readInts();
     [[deprecated]] std::vector<double> readDoubles();
     [[deprecated]] std::vector<std::string> readStrings();
