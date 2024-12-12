@@ -80,6 +80,7 @@ add_algs4_library (QuickX INTERFACE)
 add_algs4_library (Quick3way INTERFACE)
 
 add_algs4_library (Graph PUBLIC SOURCES src/Graph.cpp DEPENDS In)
+add_algs4_library (DepthFirstSearch PUBLIC SOURCES src/DepthFirstSearch.cpp DEPENDS Graph)
 
 ##############################################################
 
@@ -141,3 +142,4 @@ add_algs4_executable (QuickX_test SOURCE tests/QuickX_test.cpp LINK QuickX StdRa
 add_algs4_executable (Quick3way_test SOURCE tests/Quick3way_test.cpp LINK Quick3way StdRandom StdIn StdOut)
 
 add_algs4_executable (Graph_test SOURCE tests/Graph_test.cpp LINK Graph In StdOut)
+add_algs4_executable (DepthFirstSearch_test SOURCE tests/DepthFirstSearch_test.cpp LINK DepthFirstSearch Graph In StdIn StdOut)
