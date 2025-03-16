@@ -3,6 +3,7 @@
 
 #include <algs4/Bag.hpp>
 #include <vector>
+#include <string>
 
 namespace algs4 {
 class In;
@@ -33,6 +34,10 @@ class Graph {
 
     operator std::string() const;
 };
+
+int maxDegree(const Graph &G);
+int avgDegree(const Graph &G);
+int numberOfSelfLoops(const Graph &G);
 
 }
 

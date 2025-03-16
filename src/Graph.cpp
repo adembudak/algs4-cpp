@@ -39,6 +39,7 @@ Graph::Graph(const Graph &other) {
 }
 
 Graph &Graph::operator=(const Graph &other) {
+    V_ = other.V();
     E_ = other.E();
     adj_.resize(V_);
 
@@ -51,7 +52,6 @@ Graph &Graph::operator=(const Graph &other) {
             adj_[v].add(w);
         }
     }
-
     return *this;
 }
 
@@ -87,14 +87,32 @@ Graph::operator std::string() const {
 
     for (int v = 0; v < V_; v++) {
         sout << v << ": ";
-        const auto t = adj_[v];
-        for (const auto w : t) {
+        for (const auto w : adj_[v]) {
             sout << w << " ";
         }
         sout << "\n";
     }
 
     return sout.str();
+}
+
+int maxDegree(const Graph &G) {
+    int max = 0;
+    for (int v = 0; v < G.V(); v++)
+        if (G.degree(v) > max) max = G.degree(v);
+    return max;
+}
+
+int avgDegree(const Graph &G) {
+    return 2 * G.E() / G.V();
+}
+
+int numberOfSelfLoops(const Graph &G) {
+    int count = 0;
+    for (int v = 0; v < G.V(); v++)
+        for (int w : G.adj(v))
+            if (v == w) count++;
+    return count / 2;
 }
 
 }
