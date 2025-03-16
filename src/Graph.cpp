@@ -38,6 +38,23 @@ Graph::Graph(const Graph &other) {
     }
 }
 
+Graph &Graph::operator=(const Graph &other) {
+    E_ = other.E();
+    adj_.resize(V_);
+
+    for (int v = 0; v < other.V(); v++) {
+        Stack<int> reverse;
+        for (int w : other.adj_[v]) {
+            reverse.push(w);
+        }
+        for (int w : reverse) {
+            adj_[v].add(w);
+        }
+    }
+
+    return *this;
+}
+
 int Graph::E() const {
     return E_;
 }

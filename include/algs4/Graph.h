@@ -15,7 +15,11 @@ class Graph {
   public:
     Graph(int V);
     Graph(In &in);
-    Graph(const Graph &other);
+    Graph(const Graph &);
+    Graph &operator=(const Graph &);
+
+    Graph(Graph &&) = default;
+    Graph &operator=(Graph &&) = default;
 
     int E() const;
     int V() const;
