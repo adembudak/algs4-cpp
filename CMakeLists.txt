@@ -39,6 +39,7 @@ add_algs4_library (StdOut PUBLIC SOURCES src/StdOut.cpp)
 add_algs4_library (StdIn PUBLIC SOURCES src/StdIn.cpp)
 add_algs4_library (In PUBLIC SOURCES src/In.cpp DEPENDS httplib::httplib)
 add_algs4_library (Out PUBLIC SOURCES src/Out.cpp)
+add_algs4_library (BinaryIn PUBLIC SOURCES src/BinaryIn.cpp)
 add_algs4_library (StdArrayIO PUBLIC SOURCES src/StdArrayIO.cpp)
 add_algs4_library (StdStats PUBLIC SOURCES src/StdStats.cpp)
 add_algs4_library (StdRandom PUBLIC SOURCES src/StdRandom.cpp)
@@ -87,6 +88,7 @@ add_algs4_library (DepthFirstSearch PUBLIC SOURCES src/DepthFirstSearch.cpp DEPE
 add_algs4_executable (StdOut_test SOURCE tests/StdOut_test.cpp LINK StdOut)
 add_algs4_executable (StdIn_test SOURCE tests/StdIn_test.cpp LINK StdIn StdOut)
 add_algs4_executable (In_test SOURCE tests/In_test.cpp LINK In)
+add_algs4_executable (BinaryIn_test SOURCE tests/BinaryIn_test.cpp LINK BinaryIn)
 add_algs4_executable (Out_test SOURCE tests/Out_test.cpp LINK Out)
 add_algs4_executable (StdArrayIO_test SOURCE tests/StdArrayIO_test.cpp LINK StdArrayIO StdIn StdOut)
 add_algs4_executable (StdStats_test SOURCE tests/StdStats_test.cpp LINK StdStats StdOut StdArrayIO StdIn)
@@ -142,4 +144,5 @@ add_algs4_executable (QuickX_test SOURCE tests/QuickX_test.cpp LINK QuickX StdRa
 add_algs4_executable (Quick3way_test SOURCE tests/Quick3way_test.cpp LINK Quick3way StdRandom StdIn StdOut)
 
 add_algs4_executable (Graph_test SOURCE tests/Graph_test.cpp LINK Graph In StdOut)
-add_algs4_executable (DepthFirstSearch_test SOURCE tests/DepthFirstSearch_test.cpp LINK DepthFirstSearch Graph In StdIn StdOut)
+add_algs4_executable (DepthFirstSearch_test SOURCE tests/DepthFirstSearch_test.cpp LINK DepthFirstSearch
+                      Graph In StdIn StdOut)
